@@ -24,6 +24,7 @@ const TRAILHEADS: Trailhead[] = [
 
 export default function MapContainer() {
   const { userLocation, loading } = useUserLocation();
+  const userLocationMarkerRef = useRef<L.Marker | null>(null);
   const mapElementRef = useRef<HTMLDivElement | null>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const trailheadMarkersRef = useRef<L.Marker[]>([]);
@@ -43,6 +44,10 @@ export default function MapContainer() {
 
     mapInstanceRef.current = map;
 
+    userLocationMarkerRef.current?.remove();
+
+    userLocationMarkerRef.current = L.marker(userLocation).addTo(map).bindPopup('あなたの現在地');
+
     trailheadMarkersRef.current.forEach((m) => m.remove());
     trailheadMarkersRef.current = [];
 
@@ -53,7 +58,12 @@ export default function MapContainer() {
       trailheadMarkersRef.current.push(marker)
     }
 
+    const bounds = L.latLngBounds([userLocation, ...TRAILHEADS.map((t) => t.latLng)]);
+    map.fitBounds(bounds, {padding: [40, 40]});
+
     return () => {
+      userLocationMarkerRef.current?.remove();
+      userLocationMarkerRef.current = null;
       trailheadMarkersRef.current.forEach((m) => {
       m.remove();
     });
@@ -62,16 +72,6 @@ export default function MapContainer() {
     mapInstanceRef.current = null;
   };
 }, [userLocation]);
-
-useEffect(() => {
-  // まだ地図がない（1つ目が走る前など）は何もしない
-  if (!userLocation || !mapInstanceRef.current) {
-    return;
-  }
-
-  mapInstanceRef.current.setView(userLocation, 13);
-}, [userLocation]);
-
 
 
   if (loading || !userLocation) {

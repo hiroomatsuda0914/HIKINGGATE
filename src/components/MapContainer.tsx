@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import { useUserLocation } from '../lib/hooks/useUserLocation';
 import '../lib/constants/leaflet';
@@ -57,6 +57,29 @@ export default function MapContainer() {
   const mapElementRef = useRef<HTMLDivElement | null>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const trailheadMarkersRef = useRef<L.Marker[]>([]);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selection, setSelection] = useState<SidebarSelection | null>(null);
+
+  type SidebarSelection = {
+    kind: 'trailhead' | 'summit';
+    id: string;
+    nameJa: string;
+  };
+
+  function openSidebar(next: SidebarSelection) {
+    console.log('openSidebar', next);
+    setSidebarOpen(true);
+    setSelection(next);
+  }
+
+  function closeSidebar(){
+    setSidebarOpen(false);
+    setSelection(null);
+  }
+
+  useEffect(() => {
+    mapInstanceRef.current?.invalidateSize();
+  }, [sidebarOpen]);
 
   useEffect(() => {
     if (!userLocation || !mapElementRef.current || mapInstanceRef.current) {
@@ -84,6 +107,11 @@ export default function MapContainer() {
       const marker = L.marker(t.latLng, { icon: createPinIcon('trailhead') });
       marker.addTo(map);
       marker.bindPopup(t.nameJa);
+      marker.on('click', () => {
+        openSidebar({ kind: 'trailhead', id: t.id, nameJa: t.nameJa });
+      });
+
+
       trailheadMarkersRef.current.push(marker);
     }
 
@@ -91,6 +119,10 @@ export default function MapContainer() {
       const marker = L.marker(s.latLng, { icon: createPinIcon('summit') });
       marker.addTo(map);
       marker.bindPopup(s.nameJa);
+      
+      marker.on('click', () => {
+        openSidebar({ kind: 'summit', id: s.id, nameJa: s.nameJa });
+      });
       trailheadMarkersRef.current.push(marker);
     }
 
@@ -123,8 +155,28 @@ export default function MapContainer() {
   }
 
   return (
-    <div className="w-full h-screen">
-      <div ref={mapElementRef} className="w-full h-full" />
-    </div>
+    <div className="w-full h-screen relative">
+    {sidebarOpen && selection && (
+      <aside className="absolute right-0 top-0 bottom-0 w-80 bg-white/95 text-gray-900 backdrop-blur border-r shadow-lg z-[9999] p-4">
+        <div className="flex items-center justify-between mb-4">
+          <div className="text-sm font-semibold">AIチャット</div>
+          <button
+            onClick={closeSidebar}
+            className="text-gray-600 hover:text-gray-900"
+            aria-label="閉じる"
+          >
+            ×
+          </button>
+        </div>
+        <div className="text-xs text-gray-600 mb-3">
+          選択: {selection.nameJa}
+        </div>
+        <div className="text-sm text-gray-400">
+          ここにAIとの会話UIが入ります（空白）
+        </div>
+      </aside>
+    )}
+    <div ref={mapElementRef} className="w-full h-full" />
+  </div>
   );
 }

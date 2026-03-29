@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import { useUserLocation } from '../lib/hooks/useUserLocation';
 import '../lib/constants/leaflet';
-import { BASEMAP, MAP_INITIAL_ZOOM } from '../lib/constants/mapStyles';
+import { BASEMAP, HILLSHADE, MAP_INITIAL_ZOOM } from '../lib/constants/mapStyles';
 
 type TrailheadId = string;
 type SummitId = string;
@@ -12,6 +12,7 @@ type SummitId = string;
 interface Trailhead {
   id: TrailheadId;
   nameJa: string;
+  nameEn: string;
   latLng: [number, number];
 }
 
@@ -25,7 +26,8 @@ const TRAILHEADS: Trailhead[] = [
   {
     id: 'kamikochi',
     nameJa: '上高地',
-    latLng: [36.2544, 137.6348],
+    nameEn: 'Kamikochi - trailhead',
+    latLng: [36.2496, 137.6394],
   },
 ];
 
@@ -94,6 +96,13 @@ export default function MapContainer() {
       attribution: BASEMAP.attribution,
     }).addTo(map);
 
+    L.tileLayer(HILLSHADE.urlTemplate, {
+      attribution: HILLSHADE.attribution,
+      opacity: HILLSHADE.opacity,
+      maxZoom: HILLSHADE.maxZoom,
+      maxNativeZoom: HILLSHADE.maxNativeZoom,
+    }).addTo(map);
+
     mapInstanceRef.current = map;
 
     userLocationMarkerRef.current?.remove();
@@ -106,6 +115,10 @@ export default function MapContainer() {
     for (const t of TRAILHEADS) {
       const marker = L.marker(t.latLng, { icon: createPinIcon('trailhead') });
       marker.addTo(map);
+      marker.bindTooltip(t.nameEn, {
+        permanent: true,
+        direction: 'top',
+      });
       marker.bindPopup(t.nameJa);
       marker.on('click', () => {
         openSidebar({ kind: 'trailhead', id: t.id, nameJa: t.nameJa });

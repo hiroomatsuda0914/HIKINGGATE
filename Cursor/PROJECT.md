@@ -36,6 +36,11 @@ Type Script、位置情報、AIへの問い合わせと回答の利用
 - 二つ以上のAIエージェントに問い合わせを行い、ユーザーは回答を比較できるようにする
 - UI言語は、英語と日本語を切り替えられることする
 
+### 登山道・ルートデータ（計画）
+- **YAMAP** で登山ルートの **GPX ファイルを出力**し、本アプリ用のデータソースとする。
+- 上記 GPX を取り込み、地図上に**登山道（ルート）を描画**するための **API** を実装する（Next.js の `app/api/` 配下を想定）。
+- GPX の保管場所（DB / ストレージ）、ルートと登山口・山データの紐づけ、利用規約（YAMAP・第三者データの取り扱い）は実装時に具体化する。
+
 
 ---
 
@@ -121,8 +126,10 @@ src/
 │   └── api/                # API Routes（バックエンド）
 │       ├── trailheads/
 │       │   └── route.ts   # /api/trailheads（登山口データ取得）
-│       └── ai/
-│           └── route.ts   # /api/ai（AI問い合わせ）
+│       ├── ai/
+│       │   └── route.ts   # /api/ai（AI問い合わせ）
+│       └── trails/        # 予定: YAMAP 出力 GPX 由来の登山道描画 API（「登山道・ルートデータ」参照）
+│           └── route.ts
 ├── components/             # 再利用可能なUIコンポーネント
 │   ├── MapContainer.tsx    # 地図コンテナ
 │   ├── PinMarker.tsx        # ピンコンポーネント（登山口・山頂）
@@ -210,6 +217,9 @@ src/
 
 ### 2026-03-21
 - App Router における Server / Client 境界、`dynamic` + `ssr: false`、Leaflet 地図の高さまわりについて、`2026-03-17_map_setup_notes` の実績に基づき「App Router・クライアント境界のルール」を追記
+
+### 2026-03-28
+- YAMAP の GPX 出力と、本アプリ用の登山道描画 API を「登山道・ルートデータ（計画）」として追記。`app/api/` のディレクトリ例に `trails/`（予定）を追加
 
 ### YYYY-MM-DD
 - <!-- 変更内容を記入 -->

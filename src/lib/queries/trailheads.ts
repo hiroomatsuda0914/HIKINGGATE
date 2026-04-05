@@ -1,5 +1,6 @@
 import { supabase } from '../supabase';
 
+// --- 型定義：アプリの「内部」で使う形 ---
 export interface Trailhead {
     id: string;
     nameJa: string;
@@ -7,6 +8,8 @@ export interface Trailhead {
     latLng: [number, number];
 }
 
+// --- 型定義：DB（Supabase）から「届く」形 ---
+// DBの列名（スネークケース）に合わせている
 interface TrailheadRow {
     id: string;
     name_ja: string;
@@ -15,6 +18,8 @@ interface TrailheadRow {
     lng: number;
 }
 
+// --- 変換関数（マッピング） ---
+// DBから届いたデータを、アプリで使いやすい「Trailhead」形式に変換する
 function mapRow(row: TrailheadRow): Trailhead {
     return {
         id: row.id,
@@ -24,6 +29,7 @@ function mapRow(row: TrailheadRow): Trailhead {
     };
 }
 
+// trailheadsテーブルからデータを取得する
 export async function fetchTrailhead(): Promise<Trailhead[]> {
     const { data, error } = await supabase
     .from("trailheads")

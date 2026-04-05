@@ -5,6 +5,8 @@ import L from 'leaflet';
 import { useUserLocation } from '../lib/hooks/useUserLocation';
 import '../lib/constants/leaflet';
 import { BASEMAP, HILLSHADE, MAP_INITIAL_ZOOM } from '../lib/constants/mapStyles';
+import { fetchTrailhead } from '../lib/queries/trailheads';
+
 
 type TrailheadId = string;
 type SummitId = string;
@@ -78,6 +80,13 @@ export default function MapContainer() {
     setSidebarOpen(false);
     setSelection(null);
   }
+
+  // supabase動作確認
+  useEffect(() => {
+    fetchTrailhead().then((trailheads) => {
+      console.log(trailheads);
+    });
+  }, []);
 
   useEffect(() => {
     mapInstanceRef.current?.invalidateSize();

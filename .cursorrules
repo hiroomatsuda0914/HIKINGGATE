@@ -1,1 +1,7 @@
+ソースコードは直接編集しないでください。
+実装例を会話の中で見せてください。どのファイルの何行目付近かを一緒におしえてください。
+
+Do not edit the source code directly.
+Show implementation examples with file name and line numberin the conversation.
+
 Follow Cursor/PROJECT.md as the source of truth for project conventions and architecture.

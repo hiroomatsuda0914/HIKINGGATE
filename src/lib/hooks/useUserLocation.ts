@@ -1,9 +1,11 @@
+// ブラウザの Geolocation API で現在地を取得するカスタムフック。
+// 失敗時はデフォルト座標（高尾山口付近）にフォールバック。戻り値は [経度, 緯度]。
 'use client';
 
 import { useState, useEffect } from 'react';
 
-// デフォルトはひとまず高尾山口
-const DEFAULT_LOCATION: [number, number] = [35.629097, 139.262472];
+// デフォルトはひとまず高尾山口 — [経度, 緯度]（Mapbox / GeoJSON と同じ並び）
+const DEFAULT_LOCATION: [number, number] = [139.262472, 35.629097];
 
 export function useUserLocation() {
     const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
@@ -14,7 +16,7 @@ export function useUserLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    setUserLocation([position.coords.latitude, position.coords.longitude]);
+                    setUserLocation([position.coords.longitude, position.coords.latitude]);
                     setLoading(false);
                 },
                 (error) => {

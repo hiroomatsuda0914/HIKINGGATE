@@ -52,7 +52,7 @@ Type Script、位置情報、AIへの問い合わせと回答の利用
 - **状態管理**: <!-- 使用する状態管理ライブラリを記入 -->
 - **データベース**: Supabase（PostgreSQL + PostGIS）
 - **AI API**: Google Gemini（無料枠を活用）
-- **地図サービス**: OpenStreetMap + Leaflet（完全無料）
+- **地図サービス**: **Mapbox**（[Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/)）。転職ポートフォリオでも説明しやすいスタックとして採用。無料枠あり（月間セッション等の上限は [Mapbox の料金ページ](https://www.mapbox.com/pricing) で確認）。
 - **その他**: <!-- その他の主要なライブラリを記入 -->
 
 ### 開発環境
@@ -78,6 +78,7 @@ Type Script、位置情報、AIへの問い合わせと回答の利用
   - 変数・関数: camelCase（例: `userLocation`, `getTrailheads`）
   - 定数: UPPER_SNAKE_CASE（例: `API_BASE_URL`）
   - ファイル名: コンポーネントはPascalCase、その他はcamelCase
+- **座標（地理データ）**: アプリ内の **タプルは `[経度, 緯度]`（WGS84）** とする（Mapbox / GeoJSON と同じ並び）。フィールド名は **`lngLat`**（例: `src/lib/queries/trailheads.ts` の `Trailhead`、`useUserLocation` の `userLocation`）。DB は `lat` / `lng` 列のまま、アプリ型へは **`[row.lng, row.lat]`** でマッピングする。
 - **インデント**: スペース2つ
 - **文言管理**:
   - JSX内に日本語文言を直接大量に書かない
@@ -98,17 +99,19 @@ Next.js の Server / Client の取り違えは、`window is not defined` や `ss
 **原則**
 
 - 新規ページ・機能を足すときは、**どのファイルが Server Component / Client Component かを先に決めてから** import と `dynamic` を書く。
-- **`window` / `document` / `navigator`、Leaflet、地図タイル DOM** などブラウザ専用の API やライブラリは、**Server Component のツリーから import しない**（トップレベルで `leaflet` を読むとサーバーでも評価され、エラーになりうる）。
+- **`window` / `document` / `navigator`、Mapbox GL JS、地図キャンバス DOM** などブラウザ専用の API やライブラリは、**Server Component のツリーから import しない**（トップレベルで `mapbox-gl` を読むとサーバーでも評価され、エラーになりうる）。
 
 **`next/dynamic` と `ssr: false`**
 
 - **`dynamic(..., { ssr: false })` は Server Component 内では使えない**（App Router では `page.tsx` が多く Server Component のため、そこに直接書くとエラーになる）。
 - 推奨パターン: **`page.tsx` は Server のまま** → 子として **`'use client'` のラッパー**（例: `MapContainerWrapper`）を置く → **ラッパー内**で `dynamic(..., { ssr: false })` により地図本体を読み込む。
 
-**地図（Leaflet / OpenStreetMap）まわり（現状の方針）**
+**地図（Mapbox GL JS）まわり（方針）**
 
-- 本プロジェクトでは **`react-leaflet` だけの構成で `Element type is invalid` などが出たため、地図初期化は `leaflet` を Client コンポーネント内で直接使う形に寄せている**。ライブラリや構成を変える場合も、**必ず Client 境界と dynamic の置き場所を設計してから**変更する。
+- **Mapbox GL JS** は WebGL ベースで、**必ずクライアント専用**として扱う。`page.tsx` に直書きせず、**`'use client'` コンポーネント**、または **`next/dynamic` + `ssr: false`** で地図コンポーネントを読み込む（既存の `MapContainerWrapper` パターンと同じ思想）。
+- **アクセストークン**は環境変数で渡す（後述「Mapbox 組み込み手順」）。**公開トークン**でも URL 制限を Mapbox ダッシュボードでかけるのが前提。秘密にしたい処理はサーバー側に置く。
 - 地図が「エラーはないのに真っ白」のときはロジックだけでなく、**親から子までの高さチェーン**を疑う。`h-full` だけに頼らず、`layout` / `body` / 地図用コンテナに **明示的な高さ**（例: `h-screen`、flex 子の `min-h-0` など）を確保する。
+- **旧実装メモ**: 当初は OpenStreetMap + Leaflet を試したが、`react-leaflet` 単体での解決不整合などがあり、後に Mapbox へ方針変更。経緯の詳細は `Cursor/2026-03-17_map_setup_notes.md` を参照。
 
 **この節の扱い**
 
@@ -185,6 +188,41 @@ src/
   - 複雑なロジックには説明コメントを追加
   - 関数の目的は関数名で明確にする（コメント不要なレベルを目指す）
 
+### Mapbox 組み込み手順（アカウント作成済み想定・実装は各自）
+
+以下は **Next.js（App Router）** に Mapbox を載せるときの標準的な流れ。コードの詳細は [Mapbox GL JS の Install 手順](https://docs.mapbox.com/mapbox-gl-js/guides/install/) と [Next.js の環境変数](https://nextjs.org/docs/app/building-your-application/configuring/environment-variables) を参照。
+
+1. **アクセストークンを取得**  
+   [Mapbox Account](https://account.mapbox.com/) → **Access tokens**。Default public token か、用途別にトークンを作成。
+
+2. **環境変数を設定（クライアント用）**  
+   プロジェクト直下に `.env.local` を作成（Git にコミットしない）。  
+   - `NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=pk.eyJ1...`  
+   `NEXT_PUBLIC_` プレフィックスでブラウザから参照可能。本番（Vercel 等）でも同じ名前で設定する。
+
+3. **Mapbox ダッシュボードで URL 制限（推奨）**  
+   トークンの **URL restrictions** に `http://localhost:3000/*` と本番ドメインを追加。漏洩時の悪用を抑える。
+
+4. **パッケージを追加**  
+   ```bash
+   npm install mapbox-gl
+   npm install -D @types/mapbox-gl
+   ```  
+   React ラッパーを使う場合は `react-map-gl` の利用も選択肢（公式ドキュメントと互換バージョンを確認）。
+
+5. **グローバル CSS**  
+   `layout.tsx` などクライアントに届く経路で `mapbox-gl/dist/mapbox-gl.css` を import（または地図専用レイヤーに限定）。
+
+6. **地図コンポーネントの置き場所**  
+   - `'use client'` なコンポーネント内で `mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN` を設定してから `new mapboxgl.Map({ container, style: 'mapbox://styles/mapbox/...' })` を初期化。  
+   - もしくは **`next/dynamic` + `ssr: false`** でそのコンポーネントを遅延読み込み（既存の `MapContainerWrapper` と同様）。
+
+7. **ビルド・Worker（必要な場合）**  
+   一部のバンドラ設定では Mapbox の worker を明示する必要がある。エラーが出たら [Mapbox のトラブルシューティング](https://docs.mapbox.com/mapbox-gl-js/guides/install/#transpiling) と Next.js の `transpilePackages` 等を確認。
+
+8. **`.gitignore`**  
+   `.env.local` が無視されていることを確認。
+
 ---
 
 ## 🔗 参考リンク・リソース
@@ -204,9 +242,10 @@ src/
 - **Google Gemini API**: [Google AI Studio](https://makersuite.google.com/app/apikey)
   - 無料枠: 1分あたり15リクエスト、1日あたり1,500リクエスト
   - 日本語対応良好
-- **OpenStreetMap + Leaflet**: [Leaflet公式ドキュメント](https://leafletjs.com/)
-  - 完全無料の地図サービス
-  - React用ライブラリ: react-leaflet
+- **Mapbox**: [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/)
+  - [スタイル一覧](https://docs.mapbox.com/api/maps/styles/)（`mapbox://styles/...`）
+  - [アカウント・トークン](https://account.mapbox.com/)
+  - React 連携: [react-map-gl](https://visgl.github.io/react-map-gl/)（任意）
 
 ### その他
 - <!-- その他の参考になるリンク -->
@@ -220,6 +259,10 @@ src/
 
 ### 2026-03-28
 - YAMAP の GPX 出力と、本アプリ用の登山道描画 API を「登山道・ルートデータ（計画）」として追記。`app/api/` のディレクトリ例に `trails/`（予定）を追加
+
+### 2026-04-11
+- 地図スタックを **OpenStreetMap + Leaflet** から **Mapbox（Mapbox GL JS）** へ変更する方針を明記。App Router・クライアント境界の説明を Mapbox 前提に更新。「Mapbox 組み込み手順」セクションを追加
+- コード・ドキュメントの座標を **`[経度, 緯度]` / `lngLat`** に統一（`useUserLocation`、`trailheads` クエリ、`MapContainer` 等）。`Cursor` 配下の写経ガイドを現状に合わせて更新
 
 ### YYYY-MM-DD
 - <!-- 変更内容を記入 -->

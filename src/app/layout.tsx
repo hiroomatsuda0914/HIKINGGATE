@@ -1,7 +1,9 @@
-import 'leaflet/dist/leaflet.css';
+// アプリ全体のルートレイアウト。フォント・グローバル CSS・Mapbox のスタイルを適用する。
+// 全ページ共通の html / body 構造とメタデータを定義する。
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

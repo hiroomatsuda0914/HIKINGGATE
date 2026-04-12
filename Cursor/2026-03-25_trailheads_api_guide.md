@@ -1,5 +1,7 @@
 # `/api/trailheads` 接続ガイド（写経用）
 
+> **座標の取り決め（2026-04 〜）**: API レスポンスとフロントの型は **`lngLat: [経度, 緯度]`**（WGS84）に揃える。以下の型定義・サンプル座標はその前提。
+
 今日はまず「地図に出す登山口データ」を、フロント側の直書きから API 取得に置き換えるための手順を書きます。
 
 ## ゴール
@@ -27,20 +29,20 @@ import type { NextRequest } from 'next/server';
 type Trailhead = {
   id: string;
   nameJa: string;
-  latLng: [number, number];
+  lngLat: [number, number];
 };
 
 type Summit = {
   id: string;
   nameJa: string;
-  latLng: [number, number];
+  lngLat: [number, number];
 };
 
 const trailheads: Trailhead[] = [
   {
     id: 'kamikochi',
     nameJa: '上高地',
-    latLng: [36.2544, 137.6348],
+    lngLat: [137.6348, 36.2544],
   },
 ];
 
@@ -48,7 +50,7 @@ const summits: Summit[] = [
   {
     id: 'yarigatake',
     nameJa: '槍ヶ岳',
-    latLng: [36.3414, 137.6476],
+    lngLat: [137.6476, 36.3414],
   },
 ];
 
@@ -60,7 +62,7 @@ export async function GET(_req: NextRequest) {
 ### 解説（API側）
 - `GET` で `trailheads` と `summits` を JSON で返します。
 - 最初は固定データでOK（次は Supabase など DB に切り替える前段）。
-- `MapContainer` はこのレスポンスを読んで、受け取った座標にピンを置きます。
+- `MapContainer` はこのレスポンスを読んで、受け取った座標にピンを置く（Mapbox の `setLngLat` は `lngLat` をそのまま渡せる）。
 
 ---
 
@@ -152,8 +154,8 @@ if (!userLocation || !mapElementRef.current || mapInstanceRef.current || !trailh
 
 - `for (const t of TRAILHEADS)` → `for (const t of trailheads)`
 - `for (const s of SUMMITS)` → `for (const s of summits)`
-- `fitBounds` の `TRAILHEADS.map(...)` → `trailheads.map(...)`
-- `fitBounds` の `SUMMITS.map(...)` → `summits.map(...)`
+- `fitBounds` の `TRAILHEADS.map((t) => t.lngLat)` → `trailheads.map((t) => t.lngLat)` など（各点は `[経度, 緯度]`）
+- `SUMMITS` も同様に `summits.map((s) => s.lngLat)`
 
 ---
 

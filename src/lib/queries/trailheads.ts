@@ -1,11 +1,14 @@
+// Supabase の trailheads テーブルから登山口一覧を取得し、アプリ用オブジェクトにマッピングする。
+// DB 行（lat/lng）を lngLat タプル [経度, 緯度] に変換する。
 import { supabase } from '../supabase';
 
 // --- 型定義：アプリの「内部」で使う形 ---
+/** [経度, 緯度] WGS84 */
 export interface Trailhead {
     id: string;
     nameJa: string;
     nameEn: string;
-    latLng: [number, number];
+    lngLat: [number, number];
 }
 
 // --- 型定義：DB（Supabase）から「届く」形 ---
@@ -25,7 +28,7 @@ function mapRow(row: TrailheadRow): Trailhead {
         id: row.id,
         nameJa: row.name_ja,
         nameEn: row.name_en,
-        latLng: [row.lat, row.lng],
+        lngLat: [row.lng, row.lat],
     };
 }
 
@@ -35,6 +38,7 @@ export async function fetchTrailhead(): Promise<Trailhead[]> {
     .from("trailheads")
     .select("id, name_ja, name_en, lat, lng")
     .order("name_ja", { ascending: true });
+    console.log(data);
   if (error) {
     throw error;
   }

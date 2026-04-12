@@ -1,3 +1,5 @@
+// Supabase のブラウザ用クライアントを生成し、公開環境変数で接続する。
+// DB 問い合わせはこのインスタンス経由で行う。
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;

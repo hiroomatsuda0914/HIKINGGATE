@@ -1,39 +1,59 @@
-# 写経用チュートリアル：上高地にピンを置く（Leaflet + Next.js）
+# 写経用チュートリアル：上高地にピンを置く
 
-このドキュメントは **自分の手で `MapContainer.tsx` などを編集する前提**の学習用です。  
-ここに書いたコードは **そのまま貼り替え用の完成例**ではなく、**段階ごとに足していく写経用**です。既存構成は次のとおりです。
+## 現行実装（2026-04 時点）
 
-- `MapContainer.tsx` … `leaflet` で地図を初期化、`useUserLocation` で中心
-- `src/lib/hooks/useUserLocation.ts` … ブラウザの Geolocation API で現在地を取得し、失敗時はデフォルト座標にフォールバック
-- `src/lib/constants/leaflet.ts` … デフォルトマーカー画像の設定（既に `import '../lib/constants/leaflet'` 済み）
+リポジトリの実装は次に更新されています。**新しく写経する場合はソースを正**としてください。
+
+| 項目 | 現行 |
+|------|------|
+| 地図 | **Mapbox GL JS**（`src/components/MapContainer.tsx`） |
+| クライアント境界 | `MapContainerWrapper` の `dynamic(..., { ssr: false })`（`PROJECT.md` 参照） |
+| 座標 | **`[経度, 緯度]`（WGS84）**。データのフィールド名は **`lngLat`** |
+| 現在地 | `useUserLocation` が **`[longitude, latitude]`** を返す（`src/lib/hooks/useUserLocation.ts`） |
+| 登山口データ（DB） | `src/lib/queries/trailheads.ts` で `lngLat: [row.lng, row.lat]` にマッピング |
 
 ---
 
-## Step 0｜ゴールと用語
+## （アーカイブ）2026-03 時点の Leaflet 写経手順
 
-**ゴール**: 地図上に「上高地」を表す **1 本のマーカー** を表示する。
+以下は **当時 `leaflet` で地図を組んだ段階**の学習用メモです。**座標は当時 `[緯度, 経度]`（`latLng`）**、**API は Leaflet** 前提の記述が残っています。概念（`useEffect`・ref・クリーンアップ・二重実行対策）は流用できますが、**コードはそのまま貼らないでください。**
 
-**用語**:
+旧構成の参照:
 
-- **緯度・経度のタプル** `[緯度, 経度]` … Leaflet は `[lat, lng]` の順（日本は緯度がおおよそ 24〜46、経度が 122〜154）。
-- **マーカー** … `L.marker(latlng)` で作り、`map.addLayer(marker)` または `marker.addTo(map)` で載せる。
+- `MapContainer.tsx` …（当時）`leaflet` で初期化
+- `src/lib/hooks/useUserLocation.ts` … Geolocation（現行は `[経度, 緯度]` に変更済み）
+- `src/lib/constants/leaflet.ts` …（当時）デフォルトマーカー画像 → 現行は未使用
 
-代表座標の例（河童橋付近の目安。実プロダクトでは公式資料や OSM で確認するとよい）:
+---
+
+## （旧）Step 0｜ゴールと用語
+
+**ゴール（当時）**: 地図上に「上高地」を表す **1 本のマーカー** を表示する。
+
+**用語（当時の Leaflet 前提）**:
+
+- 当時のメモでは **緯度・経度のタプル** を `[緯度, 経度]`（`latLng`）として扱っていた。**現行は `[経度, 緯度]`（`lngLat`）に統一**。
+- **マーカー（Leaflet）** … `L.marker(latlng)` で作り、`marker.addTo(map)` で載せる。**現行は `mapboxgl.Marker`**。
+
+代表座標の例（河童橋付近の目安）— **現行コードでは経度を先にした `lngLat: [137.6348, 36.2544]` のように持つ**:
 
 ```ts
-// 上高地（河童橋付近の目安）の [緯度, 経度]。Leaflet は常に lat が先。
-const KAMIKOCHI_LATLNG: [number, number] = [36.2544, 137.6348];
+// （参考）緯度・経度を別々に知っている場合のイメージ
+const lat = 36.2544;
+const lng = 137.6348;
+// 現行アプリのタプル: [経度, 緯度]
+const lngLat: [number, number] = [lng, lat];
 ```
 
 ---
 
-## Step 1｜仮データ用の型を定義する（TypeScript）
+## （旧）Step 1｜仮データ用の型を定義する（TypeScript）
 
 ### やること
 
 `MapContainer.tsx` の **先頭付近**（`import` の直後、`export default function` の前）に、登山口 1 件分の形を表す型を書く。
 
-### 写経用コード
+### 写経用コード（現行では `lngLat` + `[経度, 緯度]`）
 
 ```ts
 // 登山口を識別する ID は文字列、という意味の別名（型エイリアス）
@@ -43,8 +63,8 @@ type TrailheadId = string;
 interface Trailhead {
   id: TrailheadId; // 一意なキー（例: 'kamikochi'）
   nameJa: string; // 日本語表示名（ポップアップなどに使う）
-  /** [緯度, 経度] — Leaflet の慣習に合わせる */
-  latLng: [number, number]; // マーカーを置く座標
+  /** [経度, 緯度] WGS84 — Mapbox / GeoJSON と同じ並び */
+  lngLat: [number, number]; // マーカーを置く座標
 }
 ```
 
@@ -54,7 +74,7 @@ interface Trailhead {
 |--------|------|
 | `type TrailheadId = string` | 「文字列の別名」を付ける。**意味をコード上で表す**のに使う。中身は普通の `string`。 |
 | `interface Trailhead { ... }` | オブジェクトの **プロパティ名と型の契約** を宣言する。クラスではない。 |
-| `latLng: [number, number]` | **タプル型**：要素がちょうど 2 つで、どちらも `number` の配列、と読める（厳密には「長さ 2 のタプル」として推論される）。 |
+| `lngLat: [number, number]` | **タプル型**：**`[経度, 緯度]`**（現行の取り決め）。 |
 | `/** ... */` | JSDoc コメント。エディタのホバー説明に出る。 |
 
 ### 解説（設計）
@@ -63,13 +83,13 @@ interface Trailhead {
 
 ---
 
-## Step 2｜上高地だけの配列データを置く
+## （旧）Step 2｜上高地だけの配列データを置く
 
 ### やること
 
 型の直後に、**アプリ内の仮データ**として定数配列を置く。
 
-### 写経用コード
+### 写経用コード（`lngLat` = [経度, 緯度]）
 
 ```ts
 // アプリ内の仮データ。あとから要素を増やせばピンも増やせる
@@ -77,7 +97,7 @@ const TRAILHEADS: Trailhead[] = [
   {
     id: 'kamikochi', // 内部 ID
     nameJa: '上高地', // UI / ポップアップ用の名前
-    latLng: [36.2544, 137.6348], // 緯度・経度
+    lngLat: [137.6348, 36.2544], // [経度, 緯度]（河童橋付近の目安）
   },
 ];
 ```
@@ -93,9 +113,11 @@ const TRAILHEADS: Trailhead[] = [
 
 最初は要素 1 つでよい。あとから同じ形のオブジェクトを増やすだけで **複数ピン** に拡張できる。
 
+> **注（Step 3 以降）**: 次のセクションからのコード断片は **Leaflet + 当時の `latLng`（`[緯度, 経度]`）** のままです。現行は **`mapboxgl.Marker`** と **`lngLat: [経度, 緯度]`** で `MapContainer.tsx` を参照してください。
+
 ---
 
-## Step 3｜マーカーを差し込むための `useRef` を用意する
+## （旧）Step 3｜マーカーを差し込むための `useRef` を用意する
 
 ### やること
 
@@ -129,7 +151,7 @@ const kamikochiMarkerRef = useRef<L.Marker | null>(null);
 
 ---
 
-## Step 4｜地図を作った直後にマーカーを追加する
+## （旧）Step 4｜地図を作った直後にマーカーを追加する
 
 ### やること
 
@@ -215,7 +237,7 @@ const kamikochiMarkerRef = useRef<L.Marker | null>(null);
 
 ---
 
-## Step 5｜`useEffect` の依存配列を確認する
+## （旧）Step 5｜`useEffect` の依存配列を確認する
 
 ### やること
 
@@ -304,7 +326,7 @@ const kamikochiMarkerRef = useRef<L.Marker | null>(null);
 
 ---
 
-## Step 6（任意）｜現在地と上高地の両方が見えるようにする
+## （旧）Step 6（任意）｜現在地と上高地の両方が見えるようにする
 
 ### やること
 
@@ -328,7 +350,7 @@ const kamikochiMarkerRef = useRef<L.Marker | null>(null);
 
 ---
 
-## Step 7（整理）｜動作確認のチェックリスト
+## （旧）Step 7（整理）｜動作確認のチェックリスト
 
 1. `npm run dev` で地図が表示される。
 2. 上高地付近に **もう 1 本のピン** が出る（現在地とは別）。
@@ -341,7 +363,7 @@ const kamikochiMarkerRef = useRef<L.Marker | null>(null);
 
 | 現象 | 見る場所 |
 |------|-----------|
-| マーカー画像が崩れる / 表示されない | `import '../lib/constants/leaflet'` が `MapContainer` で読まれているか（既存どおり）。 |
+| マーカーがずれる / 表示されない | 座標が **`[経度, 緯度]`** になっているか、`mapboxgl.Marker.setLngLat` にそのまま渡しているか。 |
 | ピンがない | `useEffect` の早期 `return` で地図がまだ作られていない、またはクリーンアップで消している順序の問題。 |
 | 二重にピンが増える | マーカー追加前の `remove` / 配列のクリアを忘れている。 |
 
@@ -391,24 +413,24 @@ export default function MapContainer() {
 
 ---
 
-## 参考｜`useUserLocation.ts` 全文（行ごとのコメント）
+## 参考｜`useUserLocation.ts`（要点・現行）
 
 `MapContainer` が **`userLocation` / `loading` / `error`** をどこから来ているか把握する用です。  
 パス: `src/lib/hooks/useUserLocation.ts`
 
 - **`navigator.geolocation`** … HTTPS または `localhost` で動かすのが無難（ブラウザ・権限により拒否されうる）。
-- 写経でそのまま貼る場合は **`//` 行は削除してもよい**（学習用コメントのため）。
+- **現行**: `userLocation` は **`[経度, 緯度]`**。成功時は `setUserLocation([position.coords.longitude, position.coords.latitude])`。
 
 ```ts
 'use client'; // Client 専用：Geolocation はブラウザ API のため
 
 import { useState, useEffect } from 'react'; // 座標の state と、マウント時の 1 回取得
 
-// 位置情報が取れない・API 非対応のときのフォールバック [緯度, 経度]（東京駅付近の目安）
-const DEFAULT_LOCATION: [number, number] = [35.681236, 139.767125];
+// 位置情報が取れない・API 非対応のときのフォールバック [経度, 緯度]（高尾山口付近の目安）
+const DEFAULT_LOCATION: [number, number] = [139.262472, 35.629097];
 
 export function useUserLocation() {
-  // 取得完了までは null。Leaflet 用に [lat, lng] のタプル
+  // 取得完了までは null。タプルは [経度, 緯度]（Mapbox と同じ並び）
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [loading, setLoading] = useState(true); // true の間はまだ結果が確定していない
   const [error, setError] = useState<string | null>(null); // 失敗時にメッセージ（UI で未使用でもデバッグに使える）
@@ -418,8 +440,8 @@ export function useUserLocation() {
       // 現在位置を 1 回だけ要求（watch ではない）
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          // 成功：WGS84 の緯度・経度を state に入れる（順序は Leaflet と同じ [lat, lng]）
-          setUserLocation([position.coords.latitude, position.coords.longitude]);
+          // 成功：WGS84 を [経度, 緯度] で保持
+          setUserLocation([position.coords.longitude, position.coords.latitude]);
           setLoading(false);
         },
         (error) => {
@@ -450,7 +472,7 @@ export function useUserLocation() {
 | 状態 | `userLocation` | `loading` |
 |------|----------------|-----------|
 | 初回レンダー直後 | `null` | `true` |
-| 取得成功 | `[lat, lng]` | `false` |
+| 取得成功 | `[経度, 緯度]` | `false` |
 | 失敗 or API なし | `DEFAULT_LOCATION` | `false` |
 
 `MapContainer` は `loading || !userLocation` が真のあいだ「Loading map...」を出し、**座標が確定してから**地図用の `div` をマウントする想定です。
@@ -566,6 +588,7 @@ export default function MapContainer() {
 
 ## 変更履歴（このドキュメント）
 
+- 2026-04-11: **現行実装（Mapbox・`lngLat`）**を冒頭に追記。旧 Leaflet 手順を「アーカイブ」として明示。Step 1〜2 の型・サンプル座標を現行の取り決めに合わせて更新
 - 2026-03-22: 「写経用｜1つ目と2つ目の `useEffect` をまとめる」を追加（役割表・全文・よくある誤り）
 - 2026-03-22: 参考「`useUserLocation.ts` 全文（行ごとのコメント）」を追加
 - 2026-03-22: 各写経用コードブロック・付録全文に **行ごとの日本語コメント** を追加

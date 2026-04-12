@@ -1,95 +1,73 @@
+// Mapbox GL で地図を描画し、GeoJSON + circle レイヤーで現在地・登山口・山頂を表示する。
+// スタイル読み込み後はまず現在地＋山頂のみ描画し、Supabase の登山口取得後に GeoJSON を更新する。
+// クリックでサイドバーなど — ブラウザ専用（dynamic + ssr:false からマウントされる想定）。
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import L from 'leaflet';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import mapboxgl from 'mapbox-gl';
 import { useUserLocation } from '../lib/hooks/useUserLocation';
-import '../lib/constants/leaflet';
-import { BASEMAP, HILLSHADE, MAP_INITIAL_ZOOM } from '../lib/constants/mapStyles';
-import { fetchTrailhead } from '../lib/queries/trailheads';
+import { MAP_INITIAL_ZOOM } from '../lib/constants/mapStyles';
+import {
+  buildHikingPointsFeatureCollection,
+  type SummitRow,
+} from '../lib/map/hikingPointsFeatureCollections';
+import { fetchTrailhead, type Trailhead } from '../lib/queries/trailheads';
 
+const SOURCE_ID = 'hiking-points';
+const LAYER_ID = 'hiking-circles';
 
-type TrailheadId = string;
-type SummitId = string;
-
-interface Trailhead {
-  id: TrailheadId;
-  nameJa: string;
-  nameEn: string;
-  latLng: [number, number];
-}
-
-interface Summit {
-  id: SummitId;
-  nameJa: string;
-  latLng: [number, number]
-}
-
-const TRAILHEADS: Trailhead[] = [
-  {
-    id: 'kamikochi',
-    nameJa: '上高地',
-    nameEn: 'Kamikochi - trailhead',
-    latLng: [36.2496, 137.6394],
-  },
-];
-
-const SUMMITS: Summit[] = [
+const SUMMITS: SummitRow[] = [
   {
     id: 'yarigatake',
     nameJa: '槍ヶ岳',
-    latLng: [36.3414, 137.6476],
-  }
-]
+    lngLat: [137.6476, 36.3414],
+  },
+];
 
-function createPinIcon(kind: 'trailhead' | 'summit'){
-  const color = kind === 'trailhead' ? '#16a34a' : '#dc2626';
-  const label = kind === 'trailhead' ? '登山口' : '山頂';
-
-  return L.divIcon({
-    className: 'custom-pin-icon',
-    html: `<div style="width:18px;height:18px;border-radius:9999px;background:${color};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.4);"></div>`,
-    iconSize: [18, 18],
-    iconAnchor: [9, 9],
-    popupAnchor: [0, -10],
-    tooltipAnchor: [0, -10],
-  });
-}
+type SidebarSelection = {
+  kind: 'trailhead' | 'summit';
+  id: string;
+  nameJa: string;
+};
 
 export default function MapContainer() {
   const { userLocation, loading } = useUserLocation();
-  const userLocationMarkerRef = useRef<L.Marker | null>(null);
   const mapElementRef = useRef<HTMLDivElement | null>(null);
-  const mapInstanceRef = useRef<L.Map | null>(null);
-  const trailheadMarkersRef = useRef<L.Marker[]>([]);
+  const mapInstanceRef = useRef<mapboxgl.Map | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selection, setSelection] = useState<SidebarSelection | null>(null);
+  /** null = Supabase からの取得前。取得完了後は配列（0 件可） */
+  const [trailheads, setTrailheads] = useState<Trailhead[] | null>(null);
+  const trailheadsRef = useRef<Trailhead[] | null>(null);
 
-  type SidebarSelection = {
-    kind: 'trailhead' | 'summit';
-    id: string;
-    nameJa: string;
-  };
+  trailheadsRef.current = trailheads;
 
-  function openSidebar(next: SidebarSelection) {
-    console.log('openSidebar', next);
+  const openSidebar = useCallback((next: SidebarSelection) => {
     setSidebarOpen(true);
     setSelection(next);
-  }
+  }, []);
 
-  function closeSidebar(){
+  const closeSidebar = useCallback(() => {
     setSidebarOpen(false);
     setSelection(null);
-  }
-
-  // supabase動作確認
-  useEffect(() => {
-    fetchTrailhead().then((trailheads) => {
-      console.log(trailheads);
-    });
   }, []);
 
   useEffect(() => {
-    mapInstanceRef.current?.invalidateSize();
+    let cancelled = false;
+    fetchTrailhead()
+      .then((rows) => {
+        if (!cancelled) setTrailheads(rows);
+      })
+      .catch(() => {
+        if (!cancelled) setTrailheads([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    mapInstanceRef.current?.resize();
   }, [sidebarOpen]);
 
   useEffect(() => {
@@ -97,108 +75,170 @@ export default function MapContainer() {
       return;
     }
 
-    const map = L.map(mapElementRef.current).setView(
-      userLocation, 
-      MAP_INITIAL_ZOOM);
+    const token = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+    if (!token) {
+      console.warn('NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN is not set');
+      return;
+    }
+    mapboxgl.accessToken = token;
 
-    L.tileLayer(BASEMAP.urlTemplate, {
-      attribution: BASEMAP.attribution,
-    }).addTo(map);
+    let cancelled = false;
 
-    L.tileLayer(HILLSHADE.urlTemplate, {
-      attribution: HILLSHADE.attribution,
-      opacity: HILLSHADE.opacity,
-      maxZoom: HILLSHADE.maxZoom,
-      maxNativeZoom: HILLSHADE.maxNativeZoom,
-    }).addTo(map);
-
+    const map = new mapboxgl.Map({
+      container: mapElementRef.current,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: userLocation,
+      zoom: MAP_INITIAL_ZOOM,
+    });
     mapInstanceRef.current = map;
 
-    userLocationMarkerRef.current?.remove();
+    const onClickCircles = (e: mapboxgl.MapMouseEvent) => {
+      const f = e.features?.[0];
+      if (!f?.properties) return;
+      const kind = f.properties.kind as string;
+      const id = f.properties.id as string;
+      const nameJa = f.properties.nameJa as string;
+      if (kind === 'trailhead' || kind === 'summit') {
+        openSidebar({ kind, id, nameJa });
+      }
+    };
 
-    userLocationMarkerRef.current = L.marker(userLocation).addTo(map).bindPopup('あなたの現在地');
+    const onMouseEnter = () => {
+      map.getCanvas().style.cursor = 'pointer';
+    };
+    const onMouseLeave = () => {
+      map.getCanvas().style.cursor = '';
+    };
 
-    trailheadMarkersRef.current.forEach((m) => m.remove());
-    trailheadMarkersRef.current = [];
+    const setup = () => {
+      if (cancelled || !mapInstanceRef.current) return;
 
-    for (const t of TRAILHEADS) {
-      const marker = L.marker(t.latLng, { icon: createPinIcon('trailhead') });
-      marker.addTo(map);
-      marker.bindTooltip(t.nameEn, {
-        permanent: true,
-        direction: 'top',
+      map.setProjection(null);
+      map.setFog(null);
+
+      // 先に現在地＋山頂のみ（登山口は取得完了後に setData で反映）
+      const data = buildHikingPointsFeatureCollection(
+        userLocation,
+        [],
+        SUMMITS,
+      );
+
+      if (map.getLayer(LAYER_ID)) map.removeLayer(LAYER_ID);
+      if (map.getSource(SOURCE_ID)) map.removeSource(SOURCE_ID);
+
+      map.addSource(SOURCE_ID, {
+        type: 'geojson',
+        data,
       });
-      marker.bindPopup(t.nameJa);
-      marker.on('click', () => {
-        openSidebar({ kind: 'trailhead', id: t.id, nameJa: t.nameJa });
+
+      map.addLayer({
+        id: LAYER_ID,
+        type: 'circle',
+        source: SOURCE_ID,
+        paint: {
+          'circle-radius': [
+            'match',
+            ['get', 'kind'],
+            'user',
+            10,
+            'trailhead',
+            9,
+            'summit',
+            9,
+            8,
+          ],
+          'circle-color': [
+            'match',
+            ['get', 'kind'],
+            'user',
+            '#2563eb',
+            'trailhead',
+            '#16a34a',
+            'summit',
+            '#dc2626',
+            '#888888',
+          ],
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#ffffff',
+        },
       });
 
+      map.on('click', LAYER_ID, onClickCircles);
+      map.on('mouseenter', LAYER_ID, onMouseEnter);
+      map.on('mouseleave', LAYER_ID, onMouseLeave);
 
-      trailheadMarkersRef.current.push(marker);
-    }
+      const src = map.getSource(SOURCE_ID) as mapboxgl.GeoJSONSource;
+      const th = trailheadsRef.current ?? [];
+      src.setData(
+        buildHikingPointsFeatureCollection(userLocation, th, SUMMITS),
+      );
 
-    for (const s of SUMMITS) {
-      const marker = L.marker(s.latLng, { icon: createPinIcon('summit') });
-      marker.addTo(map);
-      marker.bindPopup(s.nameJa);
-      
-      marker.on('click', () => {
-        openSidebar({ kind: 'summit', id: s.id, nameJa: s.nameJa });
-      });
-      trailheadMarkersRef.current.push(marker);
-    }
 
-    const bounds = L.latLngBounds([
-      userLocation,
-      ...TRAILHEADS.map((t) => t.latLng),
-      ...SUMMITS.map((s) => s.latLng),
-    ]);
-    map.fitBounds(bounds, { padding: [40, 40] });
 
+      const bounds = new mapboxgl.LngLatBounds();
+      bounds.extend(userLocation);
+      th.forEach((t) => bounds.extend(t.lngLat));
+      SUMMITS.forEach((s) => bounds.extend(s.lngLat));
+      map.fitBounds(bounds, { padding: 40 });
+    };
+
+    map.once('load', setup);
     return () => {
-      userLocationMarkerRef.current?.remove();
-      userLocationMarkerRef.current = null;
-      trailheadMarkersRef.current.forEach((m) => {
-        m.remove();
-      });
-      trailheadMarkersRef.current = [];
+      cancelled = true;
+      map.off('click', LAYER_ID, onClickCircles);
+      map.off('mouseenter', LAYER_ID, onMouseEnter);
+      map.off('mouseleave', LAYER_ID, onMouseLeave);
       map.remove();
       mapInstanceRef.current = null;
     };
-  }, [userLocation]);
+  }, [userLocation, openSidebar]);
 
+  // Supabase 取得完了後に登山口を含めた GeoJSON へ更新（地図は既に表示済み）
+  useEffect(() => {
+    if (trailheads === null || !userLocation) return;
+    const map = mapInstanceRef.current;
+    const src = map?.getSource(SOURCE_ID) as mapboxgl.GeoJSONSource | undefined;
+    if (!map || !src) return;
+
+    src.setData(
+      buildHikingPointsFeatureCollection(userLocation, trailheads, SUMMITS),
+    );
+
+    const bounds = new mapboxgl.LngLatBounds();
+    bounds.extend(userLocation);
+    trailheads.forEach((t) => bounds.extend(t.lngLat));
+    SUMMITS.forEach((s) => bounds.extend(s.lngLat));
+    map.fitBounds(bounds, { padding: 40 });
+  }, [trailheads, userLocation]);
 
   if (loading || !userLocation) {
     return (
-      <div className="w-full h-screen flex items-center justify-center">
-        <p> Loading map...</p>
+      <div className="flex h-screen w-full items-center justify-center">
+        <p>Loading map...</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full h-screen relative">
-    {sidebarOpen && selection && (
-      <aside className="absolute right-0 top-0 bottom-0 w-80 bg-white/95 text-gray-900 backdrop-blur border-r shadow-lg z-[9999] p-4">
-        <div className="flex items-center justify-between mb-4">
-          <div className="text-sm font-semibold">AIチャット</div>
-          <button
-            onClick={closeSidebar}
-            className="text-gray-600 hover:text-gray-900"
-            aria-label="閉じる"
-          >
-            ×
-          </button>
-        </div>
-        <div className="text-xs text-gray-600 mb-3">
-          選択: {selection.nameJa}
-        </div>
-        <div className="text-sm text-gray-400">
-          ここにAIとの会話UIが入ります（空白）
-        </div>
-      </aside>
-    )}
-    <div ref={mapElementRef} className="w-full h-full" />
-  </div>
+    <div className="relative h-screen w-full">
+      {sidebarOpen && selection && (
+        <aside className="absolute right-0 top-0 bottom-0 z-[9999] w-80 border-r bg-white/95 p-4 text-gray-900 shadow-lg backdrop-blur">
+          <div className="mb-4 flex items-center justify-between">
+            <div className="text-sm font-semibold">AIチャット</div>
+            <button
+              type="button"
+              onClick={closeSidebar}
+              className="text-gray-600 hover:text-gray-900"
+              aria-label="閉じる"
+            >
+              ×
+            </button>
+          </div>
+          <div className="mb-3 text-xs text-gray-600">選択: {selection.nameJa}</div>
+          <div className="text-sm text-gray-400">ここにAIとの会話UIが入ります</div>
+        </aside>
+      )}
+      <div ref={mapElementRef} className="h-full w-full" />
+    </div>
   );
 }

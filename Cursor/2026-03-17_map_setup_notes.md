@@ -1,8 +1,10 @@
 # 2026-03-17 Map Setup Notes
 
+> **現状（2026-04 以降）**: 地図は **Mapbox GL JS**、座標は **`[経度, 緯度]` / `lngLat`** に統一済み。以下は **当時（2026-03）に Leaflet で試行した記録**であり、SSR・高さ・`dynamic` の教訓はそのまま有効。
+
 ## 今日やろうとしたこと
 - Next.js アプリに地図を表示する
-- OpenStreetMap と Leaflet を使って、現在地中心の地図を出す
+- OpenStreetMap と Leaflet を使って、現在地中心の地図を出す（→ 後に Mapbox へ移行）
 
 ## 主なエラーと原因
 
@@ -50,16 +52,15 @@
 
 ### `src/components/MapContainer.tsx`
 - Client Component
-- `leaflet` を直接使って地図を初期化する
-- 現在地が取れたら地図を表示する
+- （当時）`leaflet` を直接使って地図を初期化 → **現行は Mapbox GL JS**
 
 ### `src/lib/hooks/useUserLocation.ts`
 - カスタムフック
 - 現在地取得ロジックを分離
-- 取得失敗時は東京駅をデフォルト位置にする
+- （当時のメモ）取得失敗時のフォールバック座標 → **現行は `[経度, 緯度]`・高尾山口付近のデフォルト**
 
 ### `src/lib/constants/leaflet.ts`
-- Leaflet のデフォルトマーカー設定
+- （当時）Leaflet のデフォルトマーカー設定 → **Mapbox 移行後は未使用・削除可**
 
 ## 今日学んだこと
 - Next.js では Server Component と Client Component の違いが重要

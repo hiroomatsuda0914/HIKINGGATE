@@ -1,3 +1,5 @@
+// 地図本体をクライアント専用で遅延読み込みする薄いラッパー。
+// dynamic(..., { ssr: false }) で Mapbox をサーバー実行から避ける。
 'use client';
 
 import dynamic from 'next/dynamic';

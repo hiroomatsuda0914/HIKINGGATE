@@ -7,7 +7,7 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 )
 
-const TABLES = ['prefecture', 'area', 'trailheads']
+const TABLES = ['prefecture', 'area', 'trailheads', 'summits', 'trailhead_summits']
 const OUTPUT_DIR = path.join(process.cwd(), 'docs', 'db_snapshot')
 
 async function main() {

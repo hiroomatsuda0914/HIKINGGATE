@@ -18,7 +18,7 @@ const SOURCE_ID = 'hiking-points';
 const LAYER_ID = 'hiking-circles';
 
 type SidebarSelection = {
-  kind: 'trailhead' | 'summit';
+  kind: 'trailhead' | 'summit' | 'hut-rag';
   id: string;
   nameJa: string;
 };
@@ -253,10 +253,19 @@ export default function MapContainer() {
 
   return (
     <div className="relative h-screen w-full">
+      <button
+        type="button"
+          onClick={() => openSidebar({ kind: 'hut-rag', id: 'hut-rag', nameJa: '山小屋2026' })}
+          className="absolute left-4 top-4 z-[9999] rounded bg-white px-3 py-2 text-sm font-semibold shadow-md hover:bg-gray-100"
+        >
+          2026年の山小屋情報をAIと調べる！
+        </button>
       {sidebarOpen && selection && (
         <aside className="absolute right-0 top-0 bottom-0 z-[9999] w-80 border-r bg-white/95 p-4 text-gray-900 shadow-lg backdrop-blur">
           <div className="mb-4 flex items-center justify-between">
-            <div className="text-sm font-semibold">AIチャット</div>
+            <div className="text-sm font-semibold">
+              {selection.kind === 'hut-rag' ? '山小屋2026' : 'AIチャット'}
+              </div>
             <button
               type="button"
               onClick={closeSidebar}
@@ -266,8 +275,14 @@ export default function MapContainer() {
               ×
             </button>
           </div>
-          <div className="mb-3 text-xs text-gray-600">選択: {selection.nameJa}</div>
-          <div className="text-sm text-gray-400">ここにAIとの会話UIが入ります</div>
+            {selection.kind === 'hut-rag' ? (
+              <div className="text-sm text-gray-400">山小屋・テント場のRAG AIがここに入ります</div>
+            ) : (
+              <>
+                <div className="mb-3 text-xs text-gray-600">選択: {selection.nameJa}</div>
+                <div className="text-sm text-gray-400">ここにAIとの会話UIが入ります</div>
+              </>
+            )}
         </aside>
       )}
       <div ref={mapElementRef} className="h-full w-full" />

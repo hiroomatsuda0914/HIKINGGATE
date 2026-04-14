@@ -1,8 +1,10 @@
 {
-  "fetched_at": "2026-04-14T07:29:56.798Z",
+  "fetched_at": "2026-04-14T08:14:06.568Z",
   "tables": [
     "prefecture",
     "area",
-    "trailheads"
+    "trailheads",
+    "summits",
+    "trailhead_summits"
   ]
 }

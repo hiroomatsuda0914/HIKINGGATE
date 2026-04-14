@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ':*)",
+      "Bash(powershell -Command \"Get-Content 'docs/research_data/100meizan02.csv' -Encoding Default | Select-Object -First 3\")",
+      "Bash(powershell -Command ':*)"
+    ]
+  }
+}

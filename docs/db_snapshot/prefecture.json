@@ -1,0 +1,237 @@
+[
+  {
+    "id": 1,
+    "prefecture_ja": "北海道",
+    "prefecture_en": "Hokkaido"
+  },
+  {
+    "id": 2,
+    "prefecture_ja": "青森県",
+    "prefecture_en": "Aomori"
+  },
+  {
+    "id": 3,
+    "prefecture_ja": "岩手県",
+    "prefecture_en": "Iwate"
+  },
+  {
+    "id": 4,
+    "prefecture_ja": "宮城県",
+    "prefecture_en": "Miyagi"
+  },
+  {
+    "id": 5,
+    "prefecture_ja": "秋田県",
+    "prefecture_en": "Akita"
+  },
+  {
+    "id": 6,
+    "prefecture_ja": "山形県",
+    "prefecture_en": "Yamagata"
+  },
+  {
+    "id": 7,
+    "prefecture_ja": "福島県",
+    "prefecture_en": "Fukushima"
+  },
+  {
+    "id": 8,
+    "prefecture_ja": "茨城県",
+    "prefecture_en": "Ibaraki"
+  },
+  {
+    "id": 9,
+    "prefecture_ja": "栃木県",
+    "prefecture_en": "Tochigi"
+  },
+  {
+    "id": 10,
+    "prefecture_ja": "群馬県",
+    "prefecture_en": "Gunma"
+  },
+  {
+    "id": 11,
+    "prefecture_ja": "埼玉県",
+    "prefecture_en": "Saitama"
+  },
+  {
+    "id": 12,
+    "prefecture_ja": "千葉県",
+    "prefecture_en": "Chiba"
+  },
+  {
+    "id": 13,
+    "prefecture_ja": "東京都",
+    "prefecture_en": "Tokyo"
+  },
+  {
+    "id": 14,
+    "prefecture_ja": "神奈川県",
+    "prefecture_en": "Kanagawa"
+  },
+  {
+    "id": 15,
+    "prefecture_ja": "新潟県",
+    "prefecture_en": "Niigata"
+  },
+  {
+    "id": 16,
+    "prefecture_ja": "富山県",
+    "prefecture_en": "Toyama"
+  },
+  {
+    "id": 17,
+    "prefecture_ja": "石川県",
+    "prefecture_en": "Ishikawa"
+  },
+  {
+    "id": 18,
+    "prefecture_ja": "福井県",
+    "prefecture_en": "Fukui"
+  },
+  {
+    "id": 19,
+    "prefecture_ja": "山梨県",
+    "prefecture_en": "Yamanashi"
+  },
+  {
+    "id": 20,
+    "prefecture_ja": "長野県",
+    "prefecture_en": "Nagano"
+  },
+  {
+    "id": 21,
+    "prefecture_ja": "岐阜県",
+    "prefecture_en": "Gifu"
+  },
+  {
+    "id": 22,
+    "prefecture_ja": "静岡県",
+    "prefecture_en": "Shizuoka"
+  },
+  {
+    "id": 23,
+    "prefecture_ja": "愛知県",
+    "prefecture_en": "Aichi"
+  },
+  {
+    "id": 24,
+    "prefecture_ja": "三重県",
+    "prefecture_en": "Mie"
+  },
+  {
+    "id": 25,
+    "prefecture_ja": "滋賀県",
+    "prefecture_en": "Shiga"
+  },
+  {
+    "id": 26,
+    "prefecture_ja": "京都府",
+    "prefecture_en": "Kyoto"
+  },
+  {
+    "id": 27,
+    "prefecture_ja": "大阪府",
+    "prefecture_en": "Osaka"
+  },
+  {
+    "id": 28,
+    "prefecture_ja": "兵庫県",
+    "prefecture_en": "Hyogo"
+  },
+  {
+    "id": 29,
+    "prefecture_ja": "奈良県",
+    "prefecture_en": "Nara"
+  },
+  {
+    "id": 30,
+    "prefecture_ja": "和歌山県",
+    "prefecture_en": "Wakayama"
+  },
+  {
+    "id": 31,
+    "prefecture_ja": "鳥取県",
+    "prefecture_en": "Tottori"
+  },
+  {
+    "id": 32,
+    "prefecture_ja": "島根県",
+    "prefecture_en": "Shimane"
+  },
+  {
+    "id": 33,
+    "prefecture_ja": "岡山県",
+    "prefecture_en": "Okayama"
+  },
+  {
+    "id": 34,
+    "prefecture_ja": "広島県",
+    "prefecture_en": "Hiroshima"
+  },
+  {
+    "id": 35,
+    "prefecture_ja": "山口県",
+    "prefecture_en": "Yamaguchi"
+  },
+  {
+    "id": 36,
+    "prefecture_ja": "徳島県",
+    "prefecture_en": "Tokushima"
+  },
+  {
+    "id": 37,
+    "prefecture_ja": "香川県",
+    "prefecture_en": "Kagawa"
+  },
+  {
+    "id": 38,
+    "prefecture_ja": "愛媛県",
+    "prefecture_en": "Ehime"
+  },
+  {
+    "id": 39,
+    "prefecture_ja": "高知県",
+    "prefecture_en": "Kochi"
+  },
+  {
+    "id": 40,
+    "prefecture_ja": "福岡県",
+    "prefecture_en": "Fukuoka"
+  },
+  {
+    "id": 41,
+    "prefecture_ja": "佐賀県",
+    "prefecture_en": "Saga"
+  },
+  {
+    "id": 42,
+    "prefecture_ja": "長崎県",
+    "prefecture_en": "Nagasaki"
+  },
+  {
+    "id": 43,
+    "prefecture_ja": "熊本県",
+    "prefecture_en": "Kumamoto"
+  },
+  {
+    "id": 44,
+    "prefecture_ja": "大分県",
+    "prefecture_en": "Oita"
+  },
+  {
+    "id": 45,
+    "prefecture_ja": "宮崎県",
+    "prefecture_en": "Miyazaki"
+  },
+  {
+    "id": 46,
+    "prefecture_ja": "鹿児島県",
+    "prefecture_en": "Kagoshima"
+  },
+  {
+    "id": 47,
+    "prefecture_ja": "沖縄県",
+    "prefecture_en": "Okinawa"
+  }
+]

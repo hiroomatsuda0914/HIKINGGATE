@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:snapshot": "tsx --env-file=.env.local scripts/fetch-db-snapshot.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
@@ -18,7 +19,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-        "@types/leaflet": "^1.9.21",
+    "@types/leaflet": "^1.9.21",
     "@types/mapbox-gl": "^3.4.1",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -27,6 +28,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

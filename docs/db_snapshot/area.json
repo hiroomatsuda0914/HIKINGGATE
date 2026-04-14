@@ -1,0 +1,392 @@
+[
+  {
+    "id": 1,
+    "area_ja": "利尻・羅臼・知床",
+    "area_en": "Rishiri / Rausu / Shiretoko",
+    "slug": "rishiri-shiretoko"
+  },
+  {
+    "id": 2,
+    "area_ja": "ニセコ・羊蹄山",
+    "area_en": "Niseko / Yoteizan",
+    "slug": "niseko-yotei"
+  },
+  {
+    "id": 3,
+    "area_ja": "大雪山・十勝岳・幌尻岳",
+    "area_en": "Daisetsuzan / Tokachi / Poroshiri",
+    "slug": "daisetsuzan-tokachi"
+  },
+  {
+    "id": 4,
+    "area_ja": "八甲田・岩木山",
+    "area_en": "Hakkoda / Iwaki",
+    "slug": "hakkoda-iwaki"
+  },
+  {
+    "id": 5,
+    "area_ja": "岩手山・早池峰山・姫神山",
+    "area_en": "Iwatesan / Hayachine / Himegami",
+    "slug": "iwatesan-hayachine"
+  },
+  {
+    "id": 6,
+    "area_ja": "栗駒・早池峰",
+    "area_en": "Kurikoma / Hayachine",
+    "slug": "kurikoma-hayachine"
+  },
+  {
+    "id": 7,
+    "area_ja": "蔵王・面白山・船形山",
+    "area_en": "Zao / Omoshiroyama / Funagatayama",
+    "slug": "zao-omoshiro"
+  },
+  {
+    "id": 8,
+    "area_ja": "鳥海山・月山",
+    "area_en": "Chokaizan / Gassan",
+    "slug": "chokai-gassan"
+  },
+  {
+    "id": 9,
+    "area_ja": "朝日連峰",
+    "area_en": "Asahi Range",
+    "slug": "asahi-renpo"
+  },
+  {
+    "id": 10,
+    "area_ja": "飯豊連峰",
+    "area_en": "Ide Range",
+    "slug": "ide-renpo"
+  },
+  {
+    "id": 11,
+    "area_ja": "吾妻・安達太良・磐梯山",
+    "area_en": "Azuma / Adatara / Bandai",
+    "slug": "azuma-adatara-bandai"
+  },
+  {
+    "id": 12,
+    "area_ja": "那須・塩原",
+    "area_en": "Nasu / Shiobara",
+    "slug": "nasu-shiobara"
+  },
+  {
+    "id": 13,
+    "area_ja": "日光・白根山・男体山",
+    "area_en": "Nikko / Shirane / Nantaisan",
+    "slug": "nikko-shirane"
+  },
+  {
+    "id": 14,
+    "area_ja": "尾瀬・燧ヶ岳・至仏山",
+    "area_en": "Oze / Hiuchigatake / Shibutsusan",
+    "slug": "oze-area"
+  },
+  {
+    "id": 15,
+    "area_ja": "越後三山・平ヶ岳・巻機山",
+    "area_en": "Echigo Sanzan / Hiragatake / Makihaki",
+    "slug": "echigo-sanzan"
+  },
+  {
+    "id": 16,
+    "area_ja": "谷川岳・苗場山・武尊山",
+    "area_en": "Tanigawadake / Naeba / Hotaka",
+    "slug": "tanigawa-naeba"
+  },
+  {
+    "id": 17,
+    "area_ja": "志賀高原・草津白根山・四阿山",
+    "area_en": "Shiga Kogen / Kusatsu Shirane / Azumaya",
+    "slug": "shiga-kusatsu"
+  },
+  {
+    "id": 18,
+    "area_ja": "妙高・戸隠・雨飾山",
+    "area_en": "Myoko / Togakushi / Amakazari",
+    "slug": "myoko-togakushi"
+  },
+  {
+    "id": 19,
+    "area_ja": "浅間山・軽井沢",
+    "area_en": "Asamayama / Karuizawa",
+    "slug": "asama-karuizawa"
+  },
+  {
+    "id": 20,
+    "area_ja": "赤城・皇海・榛名",
+    "area_en": "Akagi / Sukai / Haruna",
+    "slug": "akagi-sukai"
+  },
+  {
+    "id": 21,
+    "area_ja": "西上州・妙義山・荒船山",
+    "area_en": "Nishi-Joshu / Myogi / Arafune",
+    "slug": "nishi-joshu"
+  },
+  {
+    "id": 22,
+    "area_ja": "筑波山・加波山",
+    "area_en": "Tsukubasan / Kabasan",
+    "slug": "tsukuba-kaba"
+  },
+  {
+    "id": 23,
+    "area_ja": "奥久慈・八溝山",
+    "area_en": "Okukuji / Yamizosann",
+    "slug": "okukuji-yamizo"
+  },
+  {
+    "id": 24,
+    "area_ja": "奥多摩",
+    "area_en": "Okutama",
+    "slug": "okutama"
+  },
+  {
+    "id": 25,
+    "area_ja": "大菩薩嶺",
+    "area_en": "Daibosatsurei",
+    "slug": "daibosatsurei"
+  },
+  {
+    "id": 26,
+    "area_ja": "雲取山・両神山",
+    "area_en": "Kumotoriyama / Ryogami",
+    "slug": "kumotori-ryogami"
+  },
+  {
+    "id": 27,
+    "area_ja": "金峰山・甲武信",
+    "area_en": "Kinpu / Kobushi",
+    "slug": "kinpu-kobushi"
+  },
+  {
+    "id": 28,
+    "area_ja": "高尾・陣馬",
+    "area_en": "Takao / Jinba",
+    "slug": "takao-jinba"
+  },
+  {
+    "id": 29,
+    "area_ja": "丹沢",
+    "area_en": "Tanzawa",
+    "slug": "tanzawa"
+  },
+  {
+    "id": 30,
+    "area_ja": "箱根・金時山・駒ヶ岳",
+    "area_en": "Hakone / Kintoki / Komagatake",
+    "slug": "hakone-area"
+  },
+  {
+    "id": 31,
+    "area_ja": "伊豆・天城山",
+    "area_en": "Izu / Amagisan",
+    "slug": "izu-amagi"
+  },
+  {
+    "id": 32,
+    "area_ja": "富士山・御坂・愛鷹",
+    "area_en": "Mt. Fuji / Misaka / Ashitaka",
+    "slug": "mt-fuji"
+  },
+  {
+    "id": 33,
+    "area_ja": "八ヶ岳・蓼科・霧ヶ峰",
+    "area_en": "Yatsugatake / Tateshina / Kirigamine",
+    "slug": "yatsugatake"
+  },
+  {
+    "id": 34,
+    "area_ja": "白馬岳",
+    "area_en": "Hakubadake",
+    "slug": "hakubadake"
+  },
+  {
+    "id": 35,
+    "area_ja": "鹿島槍・五龍岳",
+    "area_en": "Kashimayari / Goryudake",
+    "slug": "kashimayari-goryu"
+  },
+  {
+    "id": 36,
+    "area_ja": "剱・立山",
+    "area_en": "Tsurugi / Tateyama",
+    "slug": "tsurugi-tateyama"
+  },
+  {
+    "id": 37,
+    "area_ja": "槍ヶ岳・穂高岳",
+    "area_en": "Yarigatake / Hotakadake",
+    "slug": "yari-hotaka"
+  },
+  {
+    "id": 38,
+    "area_ja": "乗鞍岳",
+    "area_en": "Norikuradake",
+    "slug": "norikuradake"
+  },
+  {
+    "id": 39,
+    "area_ja": "上高地",
+    "area_en": "Kamikochi",
+    "slug": "kamikochi"
+  },
+  {
+    "id": 40,
+    "area_ja": "御嶽山",
+    "area_en": "Mt. Ontake",
+    "slug": "mt-ontake"
+  },
+  {
+    "id": 41,
+    "area_ja": "木曽駒・空木岳",
+    "area_en": "Kisokoma / Utsugidake",
+    "slug": "kisokoma-utsugi"
+  },
+  {
+    "id": 42,
+    "area_ja": "北岳・間ノ岳",
+    "area_en": "Kitadake / Ainodake",
+    "slug": "kitadake-ainodake"
+  },
+  {
+    "id": 43,
+    "area_ja": "塩見・赤石・聖岳",
+    "area_en": "Shiomi / Akaishi / Hijiri",
+    "slug": "shiomi-akaishi"
+  },
+  {
+    "id": 44,
+    "area_ja": "白山",
+    "area_en": "Hakusan",
+    "slug": "hakusan"
+  },
+  {
+    "id": 45,
+    "area_ja": "荒島岳・能郷白山",
+    "area_en": "Arashimadake / Nogohakusan",
+    "slug": "arashima-nogo"
+  },
+  {
+    "id": 46,
+    "area_ja": "御在所・霊仙・伊吹",
+    "area_en": "Gozaisho / Ryozen / Ibuki",
+    "slug": "gozaisho-ibuki"
+  },
+  {
+    "id": 47,
+    "area_ja": "比良山系・武奈ヶ岳",
+    "area_en": "Hira Mountains / Bunagatake",
+    "slug": "hira-mountains"
+  },
+  {
+    "id": 48,
+    "area_ja": "京都北山",
+    "area_en": "Kyoto Kitayama",
+    "slug": "kyoto-kitayama"
+  },
+  {
+    "id": 49,
+    "area_ja": "北摂・京都西山",
+    "area_en": "Hokusetsu / Kyoto Nishiyama",
+    "slug": "hokusetsu-kyotonishiyama"
+  },
+  {
+    "id": 50,
+    "area_ja": "六甲・摩耶",
+    "area_en": "Rokko / Maya",
+    "slug": "rokko-maya"
+  },
+  {
+    "id": 51,
+    "area_ja": "金剛・葛城・紀泉高原",
+    "area_en": "Kongo / Katsuragi / Kisen Kogen",
+    "slug": "kongo-katsuragi"
+  },
+  {
+    "id": 52,
+    "area_ja": "大台ヶ原・高野山・熊野古道",
+    "area_en": "Odaigahara / Koyasan / Kumano Kodo",
+    "slug": "odaigahara-koyasan"
+  },
+  {
+    "id": 53,
+    "area_ja": "大峰山脈",
+    "area_en": "Omine Mountains",
+    "slug": "omine-sanmyaku"
+  },
+  {
+    "id": 54,
+    "area_ja": "氷ノ山・後山・那岐山",
+    "area_en": "Hyonosen / Ushiroyama / Nagisan",
+    "slug": "hyonosen-area"
+  },
+  {
+    "id": 55,
+    "area_ja": "大山・蒜山・三瓶山",
+    "area_en": "Daisen / Hiruzen / Sanbe",
+    "slug": "daisen-area"
+  },
+  {
+    "id": 56,
+    "area_ja": "石鎚・剣山・四国山地",
+    "area_en": "Ishizuchi / Tsurugisan / Shikoku",
+    "slug": "ishizuchi-tsurugisan"
+  },
+  {
+    "id": 57,
+    "area_ja": "福岡の山・宝満・英彦山",
+    "area_en": "Fukuoka Mountains / Homan / Hikosan",
+    "slug": "fukuoka-mountains"
+  },
+  {
+    "id": 58,
+    "area_ja": "阿蘇・九重",
+    "area_en": "Aso / Kuju",
+    "slug": "aso-kuju"
+  },
+  {
+    "id": 59,
+    "area_ja": "祖母・傾",
+    "area_en": "Sobo / Katamuki",
+    "slug": "sobo-katamuki"
+  },
+  {
+    "id": 60,
+    "area_ja": "由布岳・鶴見岳",
+    "area_en": "Yufudake / Tsurumidake",
+    "slug": "yufu-tsurumi"
+  },
+  {
+    "id": 61,
+    "area_ja": "霧島・開聞岳",
+    "area_en": "Kirishima / Kaimondake",
+    "slug": "kirishima-area"
+  },
+  {
+    "id": 62,
+    "area_ja": "屋久島",
+    "area_en": "Yakushima",
+    "slug": "yakushima"
+  },
+  {
+    "id": 63,
+    "area_ja": "沖縄の山",
+    "area_en": "Okinawa Mountains",
+    "slug": "okinawa-mountains"
+  },
+  {
+    "id": 64,
+    "area_ja": "東日本 - その他・低山",
+    "area_en": "Eastern Japan - Other / Low Mountains",
+    "slug": "east-japan-others"
+  },
+  {
+    "id": 65,
+    "area_ja": "西日本 - その他・低山",
+    "area_en": "Western Japan - Other / Low Mountains",
+    "slug": "west-japan-others"
+  }
+]

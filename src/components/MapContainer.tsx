@@ -29,15 +29,15 @@ export default function MapContainer() {
   const mapInstanceRef = useRef<mapboxgl.Map | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selection, setSelection] = useState<SidebarSelection | null>(null);
-  /** null = Supabase からの取得前。取得完了後は配列（0 件可） */
-  const [trailheads, setTrailheads] = useState<Trailhead[] | null>(null);
-  const [summits, setSummits] = useState<SummitRow[] | null>(null);
-  const trailheadsRef = useRef<Trailhead[] | null>(null);
-  const summitsRef = useRef<SummitRow[] | null>(null);
+  // /** null = Supabase からの取得前。取得完了後は配列（0 件可） */
+  // const [trailheads, setTrailheads] = useState<Trailhead[] | null>(null);
+  // const [summits, setSummits] = useState<SummitRow[] | null>(null);
+  // const trailheadsRef = useRef<Trailhead[] | null>(null);
+  // const summitsRef = useRef<SummitRow[] | null>(null);
 
 
-  trailheadsRef.current = trailheads;
-  summitsRef.current = summits;
+  // trailheadsRef.current = trailheads;
+  // summitsRef.current = summits;
 
   const openSidebar = useCallback((next: SidebarSelection) => {
     setSidebarOpen(true);
@@ -49,33 +49,33 @@ export default function MapContainer() {
     setSelection(null);
   }, []);
 
-  useEffect(() => {
-    let cancelled = false;
-    fetchTrailhead()
-      .then((rows) => {
-        if (!cancelled) setTrailheads(rows);
-      })
-      .catch(() => {
-        if (!cancelled) setTrailheads([]);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  // useEffect(() => {
+  //   let cancelled = false;
+  //   fetchTrailhead()
+  //     .then((rows) => {
+  //       if (!cancelled) setTrailheads(rows);
+  //     })
+  //     .catch(() => {
+  //       if (!cancelled) setTrailheads([]);
+  //     });
+  //   return () => {
+  //     cancelled = true;
+  //   };
+  // }, []);
 
-    useEffect(() => {
-    let cancelled = false;
-    fetchSummits()
-      .then((rows) => {
-        if (!cancelled) setSummits(rows);
-      })
-      .catch(() => {
-        if (!cancelled) setSummits([]);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  //   useEffect(() => {
+  //   let cancelled = false;
+  //   fetchSummits()
+  //     .then((rows) => {
+  //       if (!cancelled) setSummits(rows);
+  //     })
+  //     .catch(() => {
+  //       if (!cancelled) setSummits([]);
+  //     });
+  //   return () => {
+  //     cancelled = true;
+  //   };
+  // }, []);
 
   useEffect(() => {
     mapInstanceRef.current?.resize();
@@ -131,7 +131,7 @@ export default function MapContainer() {
       const data = buildHikingPointsFeatureCollection(
         userLocation,
         [],
-        summitsRef.current ?? [],
+        [],
       );
 
       if (map.getLayer(LAYER_ID)) map.removeLayer(LAYER_ID);
@@ -178,68 +178,112 @@ export default function MapContainer() {
       map.on('mouseenter', LAYER_ID, onMouseEnter);
       map.on('mouseleave', LAYER_ID, onMouseLeave);
 
-      const src = map.getSource(SOURCE_ID) as mapboxgl.GeoJSONSource;
-      const th = trailheadsRef.current ?? [];
-      const sm = summitsRef.current ?? [];
-      src.setData(
-        buildHikingPointsFeatureCollection(userLocation, th, sm),
-      );
+      // const src = map.getSource(SOURCE_ID) as mapboxgl.GeoJSONSource;
+      // const th = trailheadsRef.current ?? [];
+      // const sm = summitsRef.current ?? [];
+      // src.setData(
+      //   buildHikingPointsFeatureCollection(userLocation, th, sm),
+      // );
 
 
 
-      const bounds = new mapboxgl.LngLatBounds();
-      bounds.extend(userLocation);
-      th.forEach((t) => bounds.extend(t.lngLat));
-      sm.forEach((s) => bounds.extend(s.lngLat));
-      map.fitBounds(bounds, { padding: 40 });
+      // const bounds = new mapboxgl.LngLatBounds();
+      // bounds.extend(userLocation);
+      // th.forEach((t) => bounds.extend(t.lngLat));
+      // sm.forEach((s) => bounds.extend(s.lngLat));
+      // map.fitBounds(bounds, { padding: 40 });
     };
 
-    map.once('load', setup);
+    const loadData = async () => {
+      if (cancelled || !mapInstanceRef.current) return;
+      const b = mapInstanceRef.current.getBounds();
+      if (!b) return;
+      const bounds = {
+        minLat: b.getSouth(),
+        maxLat: b.getNorth(),
+        minLng: b.getWest(),
+        maxLng: b.getEast(),
+      };
+      const [th, sm] = await Promise.all([
+        fetchTrailhead(bounds),
+        fetchSummits(bounds),
+      ]);
+      const src = mapInstanceRef.current.getSource(SOURCE_ID) as mapboxgl.GeoJSONSource | undefined;
+      src?.setData(
+        buildHikingPointsFeatureCollection(userLocation, th, sm),
+      );
+    };
+
+    let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+
+
+    map.addControl(
+      new mapboxgl.ScaleControl({ maxWidth: 300, unit: 'metric' }),
+      'bottom-left'
+    );
+
+  map.once('load', () => {
+    setup();
+    setTimeout(() => {
+      map.easeTo({ zoom: 8, duration: 2000 });
+    }, 800);
+  });
+
+  const onMoveEnd = () => {
+    if (map.getZoom() < 6) return;
+    if (debounceTimer) clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(loadData, 500);
+  };
+
+    map.on('moveend', onMoveEnd);
+
     return () => {
+      if (debounceTimer) clearTimeout(debounceTimer);
       cancelled = true;
       map.off('click', LAYER_ID, onClickCircles);
       map.off('mouseenter', LAYER_ID, onMouseEnter);
       map.off('mouseleave', LAYER_ID, onMouseLeave);
+      map.off('moveend', onMoveEnd);
       map.remove();
       mapInstanceRef.current = null;
     };
   }, [userLocation, openSidebar]);
 
   // Supabase 取得完了後に登山口を含めた GeoJSON へ更新（地図は既に表示済み）
-  useEffect(() => {
-    if (trailheads === null || !userLocation) return;
-    const map = mapInstanceRef.current;
-    const src = map?.getSource(SOURCE_ID) as mapboxgl.GeoJSONSource | undefined;
-    if (!map || !src) return;
+  // useEffect(() => {
+  //   if (trailheads === null || !userLocation) return;
+  //   const map = mapInstanceRef.current;
+  //   const src = map?.getSource(SOURCE_ID) as mapboxgl.GeoJSONSource | undefined;
+  //   if (!map || !src) return;
 
-    src.setData(
-      buildHikingPointsFeatureCollection(userLocation, trailheads, summitsRef.current ?? []),
-    );
+  //   src.setData(
+  //     buildHikingPointsFeatureCollection(userLocation, trailheads, summitsRef.current ?? []),
+  //   );
 
-    const bounds = new mapboxgl.LngLatBounds();
-    bounds.extend(userLocation);
-    trailheads.forEach((t) => bounds.extend(t.lngLat));
-    (summitsRef.current ?? []).forEach((s) => bounds.extend(s.lngLat));
-    map.fitBounds(bounds, { padding: 40 });
-  }, [trailheads, userLocation]);
+  //   const bounds = new mapboxgl.LngLatBounds();
+  //   bounds.extend(userLocation);
+  //   trailheads.forEach((t) => bounds.extend(t.lngLat));
+  //   (summitsRef.current ?? []).forEach((s) => bounds.extend(s.lngLat));
+  //   map.fitBounds(bounds, { padding: 40 });
+  // }, [trailheads, userLocation]);
 
-  // Supabase 取得完了後に山頂を含めた GeoJSON へ更新（地図は既に表示済み）
-  useEffect(() => {
-    if (summits === null || !userLocation) return;
-    const map = mapInstanceRef.current;
-    const src = map?.getSource(SOURCE_ID) as mapboxgl.GeoJSONSource | undefined;
-    if (!map || !src) return;
+  // // Supabase 取得完了後に山頂を含めた GeoJSON へ更新（地図は既に表示済み）
+  // useEffect(() => {
+  //   if (summits === null || !userLocation) return;
+  //   const map = mapInstanceRef.current;
+  //   const src = map?.getSource(SOURCE_ID) as mapboxgl.GeoJSONSource | undefined;
+  //   if (!map || !src) return;
 
-    src.setData(
-      buildHikingPointsFeatureCollection(userLocation, trailheadsRef.current ?? [], summits),
-    );
+  //   src.setData(
+  //     buildHikingPointsFeatureCollection(userLocation, trailheadsRef.current ?? [], summits),
+  //   );
 
-    const bounds = new mapboxgl.LngLatBounds();
-    bounds.extend(userLocation);
-    (trailheadsRef.current ?? []).forEach((t) => bounds.extend(t.lngLat));
-    summits.forEach((s) => bounds.extend(s.lngLat));
-    map.fitBounds(bounds, { padding: 40 });
-  }, [summits, userLocation]);
+  //   const bounds = new mapboxgl.LngLatBounds();
+  //   bounds.extend(userLocation);
+  //   (trailheadsRef.current ?? []).forEach((t) => bounds.extend(t.lngLat));
+  //   summits.forEach((s) => bounds.extend(s.lngLat));
+  //   map.fitBounds(bounds, { padding: 40 });
+  // }, [summits, userLocation]);
 
 
 

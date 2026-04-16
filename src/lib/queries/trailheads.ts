@@ -11,6 +11,14 @@ export interface Trailhead {
     lngLat: [number, number];
 }
 
+// 登山口の取得範囲（緯度経度の最小値・最大値）を表す型
+export type Bounds = {
+  minLat: number;
+  maxLat: number;
+  minLng: number;
+  maxLng: number;
+}
+
 // --- 型定義：DB（Supabase）から「届く」形 ---
 // DBの列名（スネークケース）に合わせている
 interface TrailheadRow {
@@ -33,10 +41,14 @@ function mapRow(row: TrailheadRow): Trailhead {
 }
 
 // trailheadsテーブルからデータを取得する
-export async function fetchTrailhead(): Promise<Trailhead[]> {
+export async function fetchTrailhead(bounds: Bounds): Promise<Trailhead[]> {
     const { data, error } = await supabase
     .from("trailheads")
     .select("id, name_ja, name_en, lat, lng")
+    .gte("lat", bounds.minLat)
+    .lte("lat", bounds.maxLat)
+    .gte("lng", bounds.minLng)
+    .lte("lng", bounds.maxLng)
     .order("name_ja", { ascending: true });
     console.log(data);
   if (error) {

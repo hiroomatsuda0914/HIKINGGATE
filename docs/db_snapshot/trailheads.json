@@ -1,13 +1,3152 @@
 [
   {
+    "id": 240,
+    "name_ja": "利尻北麓野営場（鴛泊口）",
+    "name_en": "Rishiri Hokuroku Campground",
+    "lat": 45.2227,
+    "lng": 141.2126,
+    "elevation": 210,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 241,
+    "name_ja": "沓形コース見返台",
+    "name_en": "Mikaidai Trailhead",
+    "lat": 45.1771,
+    "lng": 141.1384,
+    "elevation": 420,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 242,
+    "name_ja": "岩尾別温泉登山口",
+    "name_en": "Iwaobetsu Onsen Trailhead",
+    "lat": 44.1097,
+    "lng": 145.0904,
+    "elevation": 215,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
     "id": 1,
     "name_ja": "上高地",
     "name_en": "Kamikochi",
     "lat": 36.2496,
     "lng": 137.6394,
-    "created_at": "2026-04-05T08:20:54+00:00",
     "elevation": 1504,
     "area_id": 39,
     "prefecture_id": 20
+  },
+  {
+    "id": 243,
+    "name_ja": "羅臼温泉登山口",
+    "name_en": "Rausu Onsen Trailhead",
+    "lat": 44.0156,
+    "lng": 145.1119,
+    "elevation": 90,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 244,
+    "name_ja": "清里町清岳荘登山口",
+    "name_en": "Kiyosato Seigakuso Trailhead",
+    "lat": 43.7672,
+    "lng": 144.6894,
+    "elevation": 655,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 245,
+    "name_ja": "雌阿寒温泉登山口",
+    "name_en": "Meakan Onsen Trailhead",
+    "lat": 43.3931,
+    "lng": 144.0112,
+    "elevation": 690,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 246,
+    "name_ja": "オンネトー登山口",
+    "name_en": "Onneto Trailhead",
+    "lat": 43.3803,
+    "lng": 143.9722,
+    "elevation": 620,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 247,
+    "name_ja": "旭岳ロープウェイ姿見駅",
+    "name_en": "Asahidake Sugatami Station",
+    "lat": 43.6635,
+    "lng": 142.8258,
+    "elevation": 1600,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 248,
+    "name_ja": "トムラウシ短縮登山口",
+    "name_en": "Tomuraushi Shortcut Trailhead",
+    "lat": 43.4862,
+    "lng": 142.8596,
+    "elevation": 960,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 249,
+    "name_ja": "十勝岳望岳台",
+    "name_en": "Tokachidake Bogakudai",
+    "lat": 43.5006,
+    "lng": 142.6081,
+    "elevation": 930,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 250,
+    "name_ja": "十勝岳温泉登山口",
+    "name_en": "Tokachidake Onsen Trailhead",
+    "lat": 43.4371,
+    "lng": 142.6384,
+    "elevation": 1280,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 251,
+    "name_ja": "振内（新冠）コース取水口",
+    "name_en": "Niikappu Course Intake",
+    "lat": 42.6758,
+    "lng": 142.5844,
+    "elevation": 540,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 252,
+    "name_ja": "羊蹄山半月湖登山口",
+    "name_en": "Yoteizan Hangetsuko Trailhead",
+    "lat": 42.8461,
+    "lng": 140.7586,
+    "elevation": 280,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 253,
+    "name_ja": "真狩コース登山口",
+    "name_en": "Makkari Course Trailhead",
+    "lat": 42.8711,
+    "lng": 140.8033,
+    "elevation": 350,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 254,
+    "name_ja": "駒ヶ岳神社（甲駒）",
+    "name_en": "Komagatake Jinja Trailhead",
+    "lat": 40.6558,
+    "lng": 140.3031,
+    "elevation": 250,
+    "area_id": 1,
+    "prefecture_id": 2
+  },
+  {
+    "id": 255,
+    "name_ja": "酸ヶ湯温泉登山口",
+    "name_en": "Sukayu Onsen Trailhead",
+    "lat": 40.6472,
+    "lng": 140.8491,
+    "elevation": 890,
+    "area_id": 1,
+    "prefecture_id": 2
+  },
+  {
+    "id": 256,
+    "name_ja": "八甲田ロープウェー山頂公園駅",
+    "name_en": "Hakkoda Ropeway Summit Station",
+    "lat": 40.6641,
+    "lng": 140.8427,
+    "elevation": 1314,
+    "area_id": 1,
+    "prefecture_id": 2
+  },
+  {
+    "id": 257,
+    "name_ja": "蔦温泉登山口",
+    "name_en": "Tsuta Onsen Trailhead",
+    "lat": 40.5953,
+    "lng": 140.9525,
+    "elevation": 460,
+    "area_id": 1,
+    "prefecture_id": 2
+  },
+  {
+    "id": 258,
+    "name_ja": "宇樽部登山口",
+    "name_en": "Utarube Trailhead",
+    "lat": 40.4358,
+    "lng": 140.9169,
+    "elevation": 450,
+    "area_id": 1,
+    "prefecture_id": 2
+  },
+  {
+    "id": 259,
+    "name_ja": "御滝神社登山口（十和利山）",
+    "name_en": "Otaki Jinja Trailhead",
+    "lat": 40.3853,
+    "lng": 140.8953,
+    "elevation": 520,
+    "area_id": 1,
+    "prefecture_id": 2
+  },
+  {
+    "id": 260,
+    "name_ja": "松草コース登山口",
+    "name_en": "Matsukusa Course Trailhead",
+    "lat": 39.6386,
+    "lng": 141.4081,
+    "elevation": 680,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 261,
+    "name_ja": "河原の坊登山口",
+    "name_en": "Kawaranobo Trailhead",
+    "lat": 39.4678,
+    "lng": 141.4886,
+    "elevation": 1050,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 262,
+    "name_ja": "小田越登山口",
+    "name_en": "Odakoshi Trailhead",
+    "lat": 39.4641,
+    "lng": 141.5172,
+    "elevation": 1240,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 263,
+    "name_ja": "網張温泉登山口",
+    "name_en": "Amihari Onsen Trailhead",
+    "lat": 39.7711,
+    "lng": 140.9753,
+    "elevation": 750,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 264,
+    "name_ja": "滝沢口登山口",
+    "name_en": "Takizawaguchi Trailhead",
+    "lat": 39.8169,
+    "lng": 141.0336,
+    "elevation": 210,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 265,
+    "name_ja": "須川温泉登山口",
+    "name_en": "Sukawa Onsen Trailhead",
+    "lat": 38.9814,
+    "lng": 140.7589,
+    "elevation": 1120,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 266,
+    "name_ja": "中沼登山口",
+    "name_en": "Nakanuma Trailhead",
+    "lat": 39.1172,
+    "lng": 140.8744,
+    "elevation": 720,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 267,
+    "name_ja": "阿弥陀聖水登山口",
+    "name_en": "Amida Seisui Trailhead",
+    "lat": 38.9322,
+    "lng": 140.0617,
+    "elevation": 500,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 268,
+    "name_ja": "鉾立登山口",
+    "name_en": "Hokodate Trailhead",
+    "lat": 39.1239,
+    "lng": 139.9767,
+    "elevation": 1150,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 269,
+    "name_ja": "祓川登山口",
+    "name_en": "Haraikawa Trailhead",
+    "lat": 39.1864,
+    "lng": 140.0525,
+    "elevation": 1180,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 270,
+    "name_ja": "西吾妻スカイバレー白布峠",
+    "name_en": "Shirabu Toge Trailhead",
+    "lat": 37.7378,
+    "lng": 140.0911,
+    "elevation": 1404,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 271,
+    "name_ja": "グランデコスノーリゾート（裏磐梯）",
+    "name_en": "Grandeco Trailhead",
+    "lat": 37.6917,
+    "lng": 140.1256,
+    "elevation": 1010,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 272,
+    "name_ja": "八方台登山口",
+    "name_en": "Happodai Trailhead",
+    "lat": 37.6186,
+    "lng": 140.0664,
+    "elevation": 1190,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 273,
+    "name_ja": "猪苗代登山口",
+    "name_en": "Inawashiro Trailhead",
+    "lat": 37.5856,
+    "lng": 140.1061,
+    "elevation": 680,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 274,
+    "name_ja": "あだたら山ロープウェイ奥岳駅",
+    "name_en": "Adatara Ropeway Okudake Station",
+    "lat": 37.6144,
+    "lng": 140.3364,
+    "elevation": 950,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 275,
+    "name_ja": "御成山登山口",
+    "name_en": "Onariyama Trailhead",
+    "lat": 37.6322,
+    "lng": 140.3844,
+    "elevation": 600,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 276,
+    "name_ja": "蔵王ロープウェイ山頂線地蔵山頂駅",
+    "name_en": "Zao Ropeway Jizo Summit Station",
+    "lat": 38.1503,
+    "lng": 140.4039,
+    "elevation": 1661,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 277,
+    "name_ja": "刈田峠登山口",
+    "name_en": "Katta Toge Trailhead",
+    "lat": 38.1256,
+    "lng": 140.4533,
+    "elevation": 1600,
+    "area_id": 1,
+    "prefecture_id": 4
+  },
+  {
+    "id": 278,
+    "name_ja": "古寺鉱泉登山口",
+    "name_en": "Kodera Kosen Trailhead",
+    "lat": 38.3094,
+    "lng": 139.9572,
+    "elevation": 660,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 279,
+    "name_ja": "御沢野営場（飯豊山）",
+    "name_en": "Ozawa Campground",
+    "lat": 37.8383,
+    "lng": 139.8106,
+    "elevation": 450,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 280,
+    "name_ja": "弥平四郎登山口",
+    "name_en": "Yaheishiro Trailhead",
+    "lat": 37.7658,
+    "lng": 139.7347,
+    "elevation": 580,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 281,
+    "name_ja": "天元台ロープウェイ湯元駅",
+    "name_en": "Tengendai Ropeway Yumoto Station",
+    "lat": 37.7811,
+    "lng": 140.1175,
+    "elevation": 920,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 282,
+    "name_ja": "姥沢駐車場（月山）",
+    "name_en": "Ubasawa Parking",
+    "lat": 38.5283,
+    "lng": 140.0194,
+    "elevation": 1160,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 283,
+    "name_ja": "八合目駐車場（月山）",
+    "name_en": "Gassan 8th Station Parking",
+    "lat": 38.5583,
+    "lng": 140.0289,
+    "elevation": 1400,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 284,
+    "name_ja": "鳥海山鉾立登山口",
+    "name_en": "Chokaisan Hokodate Trailhead",
+    "lat": 39.1239,
+    "lng": 139.9767,
+    "elevation": 1150,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 285,
+    "name_ja": "駒止湿原登山口",
+    "name_en": "Komado Wet plains Trailhead",
+    "lat": 37.2644,
+    "lng": 139.7289,
+    "elevation": 1100,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 286,
+    "name_ja": "御池駐車場（燧ヶ岳）",
+    "name_en": "Miike Parking",
+    "lat": 37,
+    "lng": 139.3106,
+    "elevation": 1500,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 287,
+    "name_ja": "沼山峠休息所",
+    "name_en": "Numayama Toge Rest Area",
+    "lat": 37.0019,
+    "lng": 139.3144,
+    "elevation": 1700,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 288,
+    "name_ja": "滝沢登山口（会津駒ヶ岳）",
+    "name_en": "Takizawa Trailhead",
+    "lat": 37.0456,
+    "lng": 139.3175,
+    "elevation": 950,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 289,
+    "name_ja": "七ヶ岳林道入口",
+    "name_en": "Nanatake Rindo Entrance",
+    "lat": 37.1689,
+    "lng": 139.6383,
+    "elevation": 850,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 290,
+    "name_ja": "沼田街道御池登山口",
+    "name_en": "Numata Kaido Miike Trailhead",
+    "lat": 37.0003,
+    "lng": 139.3108,
+    "elevation": 1500,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 291,
+    "name_ja": "奥利根ゆけむり街道（至仏山）",
+    "name_en": "Okutone Yukemuri Kaido",
+    "lat": 36.9208,
+    "lng": 139.2208,
+    "elevation": 1860,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 292,
+    "name_ja": "鳩待峠（尾瀬）",
+    "name_en": "Hatomachi Toge",
+    "lat": 36.9189,
+    "lng": 139.1917,
+    "elevation": 1590,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 293,
+    "name_ja": "大清水駐車場",
+    "name_en": "Oshimizu Parking",
+    "lat": 36.8833,
+    "lng": 139.3,
+    "elevation": 1180,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 294,
+    "name_ja": "馬坂峠登山口（帝釈山）",
+    "name_en": "Masaka Toge Trailhead",
+    "lat": 37.0039,
+    "lng": 139.4678,
+    "elevation": 1780,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 295,
+    "name_ja": "猿ヶ京温泉（三国山）",
+    "name_en": "Sarugakyo Onsen",
+    "lat": 36.7261,
+    "lng": 138.8858,
+    "elevation": 580,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 296,
+    "name_ja": "谷川岳ロープウェイ土合口駅",
+    "name_en": "Tanigawadake Ropeway Doaiguchi",
+    "lat": 36.8322,
+    "lng": 138.9664,
+    "elevation": 750,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 297,
+    "name_ja": "蓬峠・土合登山口",
+    "name_en": "Doai Trailhead",
+    "lat": 36.8311,
+    "lng": 138.9669,
+    "elevation": 660,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 298,
+    "name_ja": "天神平（谷川岳）",
+    "name_en": "Tenjindaira",
+    "lat": 36.8389,
+    "lng": 138.9483,
+    "elevation": 1319,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 299,
+    "name_ja": "桜平登山口（八ヶ岳）",
+    "name_en": "Sakuradaira Trailhead",
+    "lat": 35.994,
+    "lng": 138.347,
+    "elevation": 1880,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 300,
+    "name_ja": "美濃戸口（八ヶ岳）",
+    "name_en": "Minotoguchi",
+    "lat": 35.9819,
+    "lng": 138.2981,
+    "elevation": 1490,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 301,
+    "name_ja": "観音温泉登山口",
+    "name_en": "Kannon Onsen Trailhead",
+    "lat": 34.735,
+    "lng": 138.9183,
+    "elevation": 350,
+    "area_id": 1,
+    "prefecture_id": 22
+  },
+  {
+    "id": 302,
+    "name_ja": "天城峠（天城山）",
+    "name_en": "Amagi Toge",
+    "lat": 34.8419,
+    "lng": 138.9308,
+    "elevation": 830,
+    "area_id": 1,
+    "prefecture_id": 22
+  },
+  {
+    "id": 303,
+    "name_ja": "白糸の滝入口（富士山）",
+    "name_en": "Shiraito Falls Entrance",
+    "lat": 35.3125,
+    "lng": 138.5886,
+    "elevation": 500,
+    "area_id": 1,
+    "prefecture_id": 22
+  },
+  {
+    "id": 304,
+    "name_ja": "富士宮口五合目",
+    "name_en": "Fujinomiya 5th Station",
+    "lat": 35.3367,
+    "lng": 138.7314,
+    "elevation": 2380,
+    "area_id": 1,
+    "prefecture_id": 22
+  },
+  {
+    "id": 305,
+    "name_ja": "御殿場口新五合目",
+    "name_en": "Gotemba New 5th Station",
+    "lat": 35.3608,
+    "lng": 138.7275,
+    "elevation": 1440,
+    "area_id": 1,
+    "prefecture_id": 22
+  },
+  {
+    "id": 306,
+    "name_ja": "須走口五合目",
+    "name_en": "Subashiri 5th Station",
+    "lat": 35.3703,
+    "lng": 138.8075,
+    "elevation": 1970,
+    "area_id": 1,
+    "prefecture_id": 22
+  },
+  {
+    "id": 307,
+    "name_ja": "吉田口馬返",
+    "name_en": "Yoshidaguchi Umagaeshi",
+    "lat": 35.4528,
+    "lng": 138.7408,
+    "elevation": 1450,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 308,
+    "name_ja": "富士スバルライン五合目",
+    "name_en": "Fuji Subaru Line 5th Station",
+    "lat": 35.3911,
+    "lng": 138.7333,
+    "elevation": 2305,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 309,
+    "name_ja": "金峰山瑞牆山荘",
+    "name_en": "Kinpusan Mizugaki Sanso",
+    "lat": 35.8933,
+    "lng": 138.5919,
+    "elevation": 1520,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 310,
+    "name_ja": "大戸沢駐車場（両神山）",
+    "name_en": "Otozawa Parking",
+    "lat": 36.015,
+    "lng": 138.8508,
+    "elevation": 650,
+    "area_id": 1,
+    "prefecture_id": 11
+  },
+  {
+    "id": 311,
+    "name_ja": "日向大谷登山口",
+    "name_en": "Hinata Otani Trailhead",
+    "lat": 36.0233,
+    "lng": 138.8414,
+    "elevation": 630,
+    "area_id": 1,
+    "prefecture_id": 11
+  },
+  {
+    "id": 312,
+    "name_ja": "雲取山小袖乗越",
+    "name_en": "Kumotoriyama Kosode Nokoshi",
+    "lat": 35.8556,
+    "lng": 138.9439,
+    "elevation": 1210,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 313,
+    "name_ja": "上日川峠（大菩薩嶺）",
+    "name_en": "Kamihikkawa Toge",
+    "lat": 35.7489,
+    "lng": 138.8456,
+    "elevation": 1585,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 314,
+    "name_ja": "西丹沢ビジターセンター",
+    "name_en": "Nishi-Tanzawa Visitor Center",
+    "lat": 35.4864,
+    "lng": 139.1389,
+    "elevation": 540,
+    "area_id": 1,
+    "prefecture_id": 14
+  },
+  {
+    "id": 315,
+    "name_ja": "大倉登山口（塔ノ岳）",
+    "name_en": "Okura Trailhead",
+    "lat": 35.4056,
+    "lng": 139.1264,
+    "elevation": 290,
+    "area_id": 1,
+    "prefecture_id": 14
+  },
+  {
+    "id": 316,
+    "name_ja": "白根火山駐車場（草津）",
+    "name_en": "Shirane Kazan Parking",
+    "lat": 36.6433,
+    "lng": 138.5283,
+    "elevation": 2010,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 317,
+    "name_ja": "万座温泉登山口",
+    "name_en": "Manza Onsen Trailhead",
+    "lat": 36.6425,
+    "lng": 138.5022,
+    "elevation": 1760,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 318,
+    "name_ja": "四阿山鳥居峠",
+    "name_en": "Azumayasan Torii Toge",
+    "lat": 36.5258,
+    "lng": 138.4069,
+    "elevation": 1362,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 319,
+    "name_ja": "パルコールつま恋ゴンドラ山頂駅",
+    "name_en": "Palcall Tsumagoi Gondola Summit",
+    "lat": 36.5394,
+    "lng": 138.3881,
+    "elevation": 2050,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 320,
+    "name_ja": "浅間山天狗温泉",
+    "name_en": "Asamayama Tengu Onsen",
+    "lat": 36.3986,
+    "lng": 138.4558,
+    "elevation": 1410,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 321,
+    "name_ja": "車坂峠（浅間山）",
+    "name_en": "Kurumazaka Toge",
+    "lat": 36.4053,
+    "lng": 138.4683,
+    "elevation": 1970,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 322,
+    "name_ja": "赤城山ビジターセンター",
+    "name_en": "Akagisan Visitor Center",
+    "lat": 36.5544,
+    "lng": 139.1836,
+    "elevation": 1350,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 323,
+    "name_ja": "大洞駐車場",
+    "name_en": "Onogawa Parking",
+    "lat": 36.5494,
+    "lng": 139.1844,
+    "elevation": 1345,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 324,
+    "name_ja": "七合目登山口（蓼科山）",
+    "name_en": "Tateshinayama 7th Station",
+    "lat": 36.1172,
+    "lng": 138.2936,
+    "elevation": 1900,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 325,
+    "name_ja": "大河原峠（蓼科山）",
+    "name_en": "Ogawara Toge",
+    "lat": 36.1114,
+    "lng": 138.3331,
+    "elevation": 2093,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 326,
+    "name_ja": "車山肩（霧ヶ峰）",
+    "name_en": "Kurumayamakata",
+    "lat": 36.1022,
+    "lng": 138.1814,
+    "elevation": 1800,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 327,
+    "name_ja": "ビーナスライン富士見台",
+    "name_en": "Fujimidai Parking",
+    "lat": 36.1167,
+    "lng": 138.1583,
+    "elevation": 1700,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 328,
+    "name_ja": "和田峠（美ヶ原）",
+    "name_en": "Wada Toge",
+    "lat": 36.1364,
+    "lng": 138.1311,
+    "elevation": 1530,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 329,
+    "name_ja": "山本小屋ふる里館",
+    "name_en": "Yamamoto Koya",
+    "lat": 36.2253,
+    "lng": 138.1364,
+    "elevation": 1940,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 330,
+    "name_ja": "美ヶ原自然保護センター",
+    "name_en": "Utsukushigahara Nature Center",
+    "lat": 36.2344,
+    "lng": 138.1069,
+    "elevation": 1900,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 332,
+    "name_ja": "栂池自然園（白馬岳）",
+    "name_en": "Tsugaike Nature Park",
+    "lat": 36.7744,
+    "lng": 137.8356,
+    "elevation": 1860,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 333,
+    "name_ja": "猿倉荘（白馬岳）",
+    "name_en": "Sarukura Trailhead",
+    "lat": 36.7364,
+    "lng": 137.7961,
+    "elevation": 1230,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 334,
+    "name_ja": "扇沢駅（爺ヶ岳・鹿島槍ヶ岳）",
+    "name_en": "Ogisawa Station",
+    "lat": 36.56,
+    "lng": 137.7247,
+    "elevation": 1433,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 335,
+    "name_ja": "柏原新道登山口",
+    "name_en": "Kashiwabara Shindo Trailhead",
+    "lat": 36.5564,
+    "lng": 137.7336,
+    "elevation": 1350,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 336,
+    "name_ja": "七倉山荘（高瀬ダム経由）",
+    "name_en": "Nanakura Sanso",
+    "lat": 36.505,
+    "lng": 137.7144,
+    "elevation": 1060,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 337,
+    "name_ja": "中房温泉（燕岳）",
+    "name_en": "Nakabusa Onsen Trailhead",
+    "lat": 36.3931,
+    "lng": 137.7478,
+    "elevation": 1460,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 338,
+    "name_ja": "三股登山口（蝶ヶ岳・常念岳）",
+    "name_en": "Mitsumata Trailhead",
+    "lat": 36.2847,
+    "lng": 137.7781,
+    "elevation": 1350,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 339,
+    "name_ja": "一ノ沢登山口（常念岳）",
+    "name_en": "Ichinosawa Trailhead",
+    "lat": 36.3314,
+    "lng": 137.7656,
+    "elevation": 1260,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 340,
+    "name_ja": "上高地バスターミナル",
+    "name_en": "Kamikochi Bus Terminal",
+    "lat": 36.2492,
+    "lng": 137.6417,
+    "elevation": 1505,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 342,
+    "name_ja": "飛越トンネル登山口（北ノ俣岳）",
+    "name_en": "Hietsu Tunnel Trailhead",
+    "lat": 36.4389,
+    "lng": 137.4939,
+    "elevation": 1450,
+    "area_id": 1,
+    "prefecture_id": 21
+  },
+  {
+    "id": 343,
+    "name_ja": "折立（薬師岳）",
+    "name_en": "Oritate Trailhead",
+    "lat": 36.5028,
+    "lng": 137.5042,
+    "elevation": 1350,
+    "area_id": 1,
+    "prefecture_id": 16
+  },
+  {
+    "id": 344,
+    "name_ja": "室堂ターミナル（立山・剱岳）",
+    "name_en": "Murodo Terminal",
+    "lat": 36.5772,
+    "lng": 137.6022,
+    "elevation": 2450,
+    "area_id": 1,
+    "prefecture_id": 16
+  },
+  {
+    "id": 345,
+    "name_ja": "馬場島荘（剱岳・早月尾根）",
+    "name_en": "Banbajima Trailhead",
+    "lat": 36.6322,
+    "lng": 137.5256,
+    "elevation": 760,
+    "area_id": 1,
+    "prefecture_id": 16
+  },
+  {
+    "id": 346,
+    "name_ja": "桂台（大日岳）",
+    "name_en": "Katsuradai Trailhead",
+    "lat": 36.5861,
+    "lng": 137.4694,
+    "elevation": 670,
+    "area_id": 1,
+    "prefecture_id": 16
+  },
+  {
+    "id": 347,
+    "name_ja": "別当出合（白山）",
+    "name_en": "Betto Deai Trailhead",
+    "lat": 36.1264,
+    "lng": 136.7264,
+    "elevation": 1260,
+    "area_id": 1,
+    "prefecture_id": 17
+  },
+  {
+    "id": 348,
+    "name_ja": "市ノ瀬（白山）",
+    "name_en": "Ichinose",
+    "lat": 36.0944,
+    "lng": 136.7194,
+    "elevation": 830,
+    "area_id": 1,
+    "prefecture_id": 17
+  },
+  {
+    "id": 349,
+    "name_ja": "しらび平駅（木曽駒ヶ岳）",
+    "name_en": "Shirabidaira Station",
+    "lat": 35.7486,
+    "lng": 137.8261,
+    "elevation": 1662,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 350,
+    "name_ja": "桂小場（木曽駒ヶ岳）",
+    "name_en": "Katsurakoba Trailhead",
+    "lat": 35.8567,
+    "lng": 137.8925,
+    "elevation": 1270,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 351,
+    "name_ja": "椹島ロッジ（荒川岳・赤石岳）",
+    "name_en": "Sawarajima Lodge",
+    "lat": 35.4664,
+    "lng": 138.2258,
+    "elevation": 1120,
+    "area_id": 1,
+    "prefecture_id": 22
+  },
+  {
+    "id": 352,
+    "name_ja": "沼平ゲート（聖岳・茶臼岳）",
+    "name_en": "Numahira Gate",
+    "lat": 35.3789,
+    "lng": 138.2167,
+    "elevation": 950,
+    "area_id": 1,
+    "prefecture_id": 22
+  },
+  {
+    "id": 353,
+    "name_ja": "易老渡（光岳）",
+    "name_en": "Irowado Trailhead",
+    "lat": 35.34,
+    "lng": 138.07,
+    "elevation": 880,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 355,
+    "name_ja": "神坂峠（恵那山）",
+    "name_en": "Misaka Toge",
+    "lat": 35.4742,
+    "lng": 137.6339,
+    "elevation": 1570,
+    "area_id": 1,
+    "prefecture_id": 21
+  },
+  {
+    "id": 356,
+    "name_ja": "広河原（北岳・間ノ岳）",
+    "name_en": "Hirokawara",
+    "lat": 35.7003,
+    "lng": 138.2658,
+    "elevation": 1520,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 357,
+    "name_ja": "北沢峠（甲斐駒ヶ岳・仙丈ヶ岳）",
+    "name_en": "Kitazawa Toge",
+    "lat": 35.7194,
+    "lng": 138.2094,
+    "elevation": 2032,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 358,
+    "name_ja": "戸台パーク（仙流荘）",
+    "name_en": "Todai Park",
+    "lat": 35.8117,
+    "lng": 138.1067,
+    "elevation": 830,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 359,
+    "name_ja": "鳳凰小屋・御座石温泉",
+    "name_en": "Gozaishi Onsen",
+    "lat": 35.7336,
+    "lng": 138.3361,
+    "elevation": 1090,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 360,
+    "name_ja": "夜叉神峠登山口",
+    "name_en": "Yashajin Toge Trailhead",
+    "lat": 35.6669,
+    "lng": 138.3183,
+    "elevation": 1380,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 362,
+    "name_ja": "伊吹山ドライブウェイ山頂駐車場",
+    "name_en": "Ibukiyama Driveway Parking",
+    "lat": 35.4128,
+    "lng": 136.4022,
+    "elevation": 1260,
+    "area_id": 1,
+    "prefecture_id": 25
+  },
+  {
+    "id": 363,
+    "name_ja": "三之宮神社（伊吹山上野口）",
+    "name_en": "Sannomiya Jinja",
+    "lat": 35.39,
+    "lng": 136.3986,
+    "elevation": 220,
+    "area_id": 1,
+    "prefecture_id": 25
+  },
+  {
+    "id": 424,
+    "name_ja": "大日杉小屋（飯豊山）",
+    "name_en": "Dainichisugi小屋",
+    "lat": 37.8936,
+    "lng": 139.9042,
+    "elevation": 610,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 365,
+    "name_ja": "行者還トンネル西口（大峰山）",
+    "name_en": "Gyojakaeri Tunnel West",
+    "lat": 34.1736,
+    "lng": 135.9075,
+    "elevation": 1100,
+    "area_id": 1,
+    "prefecture_id": 29
+  },
+  {
+    "id": 366,
+    "name_ja": "母公堂",
+    "name_en": "Hahakodo",
+    "lat": 34.173,
+    "lng": 135.907,
+    "elevation": 1080,
+    "area_id": 1,
+    "prefecture_id": 29
+  },
+  {
+    "id": 367,
+    "name_ja": "わかさ氷ノ山キャンプ場",
+    "name_en": "Wakasa Hyonosen Campground",
+    "lat": 35.35,
+    "lng": 134.46,
+    "elevation": 650,
+    "area_id": 1,
+    "prefecture_id": 31
+  },
+  {
+    "id": 368,
+    "name_ja": "名頃登山口（剣山）",
+    "name_en": "Nagoro Trailhead",
+    "lat": 33.8475,
+    "lng": 134.0208,
+    "elevation": 900,
+    "area_id": 1,
+    "prefecture_id": 36
+  },
+  {
+    "id": 369,
+    "name_ja": "見ノ越（剣山）",
+    "name_en": "Minokoshi",
+    "lat": 33.8569,
+    "lng": 134.0989,
+    "elevation": 1410,
+    "area_id": 1,
+    "prefecture_id": 36
+  },
+  {
+    "id": 370,
+    "name_ja": "土小屋（石鎚山）",
+    "name_en": "Tsuchigoya",
+    "lat": 33.7483,
+    "lng": 133.1539,
+    "elevation": 1492,
+    "area_id": 1,
+    "prefecture_id": 38
+  },
+  {
+    "id": 371,
+    "name_ja": "石鎚登山ロープウェイ下谷駅",
+    "name_en": "Ishizuchi Ropeway Shimodani",
+    "lat": 33.7919,
+    "lng": 133.1517,
+    "elevation": 450,
+    "area_id": 1,
+    "prefecture_id": 38
+  },
+  {
+    "id": 372,
+    "name_ja": "えびの高原（韓国岳）",
+    "name_en": "Ebino Kogen",
+    "lat": 31.9439,
+    "lng": 130.8408,
+    "elevation": 1200,
+    "area_id": 1,
+    "prefecture_id": 45
+  },
+  {
+    "id": 373,
+    "name_ja": "大浪池登山口",
+    "name_en": "Onamiike Trailhead",
+    "lat": 31.9161,
+    "lng": 130.8425,
+    "elevation": 1080,
+    "area_id": 1,
+    "prefecture_id": 45
+  },
+  {
+    "id": 374,
+    "name_ja": "牧園町高千穂（高千穂峰）",
+    "name_en": "Takachiho-no-mine",
+    "lat": 31.8883,
+    "lng": 130.8753,
+    "elevation": 970,
+    "area_id": 1,
+    "prefecture_id": 46
+  },
+  {
+    "id": 375,
+    "name_ja": "阿蘇山上広場",
+    "name_en": "Aso Sanjo Hiroba",
+    "lat": 32.8856,
+    "lng": 131.0772,
+    "elevation": 1150,
+    "area_id": 1,
+    "prefecture_id": 43
+  },
+  {
+    "id": 376,
+    "name_ja": "仙酔峡（阿蘇山）",
+    "name_en": "Sensuikyo",
+    "lat": 32.9092,
+    "lng": 131.1158,
+    "elevation": 900,
+    "area_id": 1,
+    "prefecture_id": 43
+  },
+  {
+    "id": 377,
+    "name_ja": "牧ノ戸峠（九重山）",
+    "name_en": "Makinoto Toge",
+    "lat": 33.135,
+    "lng": 131.2181,
+    "elevation": 1330,
+    "area_id": 1,
+    "prefecture_id": 44
+  },
+  {
+    "id": 378,
+    "name_ja": "長者原（九重山）",
+    "name_en": "Chotabaru",
+    "lat": 33.1497,
+    "lng": 131.2356,
+    "elevation": 1035,
+    "area_id": 1,
+    "prefecture_id": 44
+  },
+  {
+    "id": 379,
+    "name_ja": "淀川登山口（宮之浦岳）",
+    "name_en": "Yodogawa Trailhead",
+    "lat": 30.3061,
+    "lng": 130.5056,
+    "elevation": 1380,
+    "area_id": 1,
+    "prefecture_id": 46
+  },
+  {
+    "id": 380,
+    "name_ja": "荒川登山口（縄文杉・宮之浦岳）",
+    "name_en": "Arakawa Trailhead",
+    "lat": 30.3664,
+    "lng": 130.5806,
+    "elevation": 600,
+    "area_id": 1,
+    "prefecture_id": 46
+  },
+  {
+    "id": 381,
+    "name_ja": "天塩岳ヒュッテ登山口",
+    "name_en": "Teshiodake Hut Trailhead",
+    "lat": 43.9297,
+    "lng": 142.8839,
+    "elevation": 710,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 382,
+    "name_ja": "石狩岳シュナイダーコース登山口",
+    "name_en": "Ishikaridake Schneider Course",
+    "lat": 43.5133,
+    "lng": 143.0489,
+    "elevation": 1030,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 383,
+    "name_ja": "ニペソツ山十六の沢登山口",
+    "name_en": "Nipesotsu Jurokunozawa Trailhead",
+    "lat": 43.4356,
+    "lng": 143.0856,
+    "elevation": 1020,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 384,
+    "name_ja": "札内川ヒュッテ（カムエク）",
+    "name_en": "Satsunaigawa Hut",
+    "lat": 42.6139,
+    "lng": 142.8464,
+    "elevation": 650,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 385,
+    "name_ja": "中札内・コイカクシュサツナイ岳登山口",
+    "name_en": "Koikakushusatsunai Trailhead",
+    "lat": 42.5489,
+    "lng": 142.8339,
+    "elevation": 580,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 386,
+    "name_ja": "芦別岳旧道・新道登山口",
+    "name_en": "Ashibetsudake Trailhead",
+    "lat": 43.2156,
+    "lng": 142.2778,
+    "elevation": 320,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 387,
+    "name_ja": "夕張岳ヒュッテ登山口",
+    "name_en": "Yubaridake Hut Trailhead",
+    "lat": 43.0767,
+    "lng": 142.2156,
+    "elevation": 640,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 388,
+    "name_ja": "暑寒別岳箸別登山口",
+    "name_en": "Shokanbetsudake Hashibetsu Trailhead",
+    "lat": 43.7667,
+    "lng": 141.5178,
+    "elevation": 410,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 389,
+    "name_ja": "暑寒別岳暑寒荘登山口",
+    "name_en": "Shokanbetsudake Shokanso Trailhead",
+    "lat": 43.7042,
+    "lng": 141.5583,
+    "elevation": 240,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 390,
+    "name_ja": "樽前山七合目駐車場",
+    "name_en": "Tarumaezan 7th Station Parking",
+    "lat": 42.6864,
+    "lng": 141.3861,
+    "elevation": 650,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 391,
+    "name_ja": "平取・芽室岳登山口",
+    "name_en": "Memurodake Trailhead",
+    "lat": 42.8589,
+    "lng": 142.8456,
+    "elevation": 680,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 392,
+    "name_ja": "狩勝峠（佐幌岳経由）",
+    "name_en": "Karikachi Toge",
+    "lat": 43.1189,
+    "lng": 142.7936,
+    "elevation": 644,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 393,
+    "name_ja": "東ヌプカウシヌプリ登山口",
+    "name_en": "Higashi Nupukaushinupuri Trailhead",
+    "lat": 43.315,
+    "lng": 143.1469,
+    "elevation": 810,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 394,
+    "name_ja": "白雲山・士幌高原ヌプカの里",
+    "name_en": "Shihoro Kogen Nupuka-no-sato",
+    "lat": 43.2753,
+    "lng": 143.1481,
+    "elevation": 750,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 395,
+    "name_ja": "大千軒岳新道登山口",
+    "name_en": "Daisengen-dake Shindo Trailhead",
+    "lat": 41.5511,
+    "lng": 140.1989,
+    "elevation": 520,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 396,
+    "name_ja": "ニセコアンヌプリ五色温泉登山口",
+    "name_en": "Niseko Annupuri Goshiki Onsen",
+    "lat": 42.8739,
+    "lng": 140.6392,
+    "elevation": 750,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 397,
+    "name_ja": "奥尻島・神威山登山口",
+    "name_en": "Okushiri Kamuiyama Trailhead",
+    "lat": 42.1836,
+    "lng": 139.4678,
+    "elevation": 120,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 398,
+    "name_ja": "秋田駒ヶ岳八合目駐車場",
+    "name_en": "Akitakomagatake 8th Station Parking",
+    "lat": 39.7719,
+    "lng": 140.8306,
+    "elevation": 1300,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 400,
+    "name_ja": "森吉山阿仁スキー場ゴンドラ山頂駅",
+    "name_en": "Moriyoshizan Ani Gondola Summit",
+    "lat": 39.9719,
+    "lng": 140.5286,
+    "elevation": 1170,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 401,
+    "name_ja": "森吉山こめつが山荘",
+    "name_en": "Moriyoshizan Kometsuga Sanso",
+    "lat": 39.9917,
+    "lng": 140.5486,
+    "elevation": 750,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 402,
+    "name_ja": "姫神山一本杉登山口",
+    "name_en": "Himekamisan Ipponsugi Trailhead",
+    "lat": 39.8436,
+    "lng": 141.2289,
+    "elevation": 530,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 403,
+    "name_ja": "和賀岳甘露口登山口",
+    "name_en": "Wagadake Kanroguchi Trailhead",
+    "lat": 39.5256,
+    "lng": 140.6869,
+    "elevation": 450,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 404,
+    "name_ja": "焼石岳中沼登山口",
+    "name_en": "Yakeishidake Nakanuma Trailhead",
+    "lat": 39.1172,
+    "lng": 140.8744,
+    "elevation": 720,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 405,
+    "name_ja": "栗駒山いわかがみ平",
+    "name_en": "Kurikomayama Iwakagamidaira",
+    "lat": 38.9483,
+    "lng": 140.7997,
+    "elevation": 1110,
+    "area_id": 1,
+    "prefecture_id": 4
+  },
+  {
+    "id": 406,
+    "name_ja": "神室山役内登山口",
+    "name_en": "Kamurosan Yakunai Trailhead",
+    "lat": 38.9564,
+    "lng": 140.4856,
+    "elevation": 420,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 408,
+    "name_ja": "以東岳泡滝ダム登山口",
+    "name_en": "Itodake Awataki Dam Trailhead",
+    "lat": 38.4114,
+    "lng": 139.8739,
+    "elevation": 520,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 409,
+    "name_ja": "摩耶山越沢登山口",
+    "name_en": "Mayasan Koesawa Trailhead",
+    "lat": 38.6017,
+    "lng": 139.6739,
+    "elevation": 150,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 411,
+    "name_ja": "甘露口登山口（和賀岳）",
+    "name_en": "Kanroguchi Trailhead",
+    "lat": 39.5256,
+    "lng": 140.6869,
+    "elevation": 450,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 413,
+    "name_ja": "いわかがみ平（栗駒山）",
+    "name_en": "Iwakagamidaira",
+    "lat": 38.9483,
+    "lng": 140.7997,
+    "elevation": 1110,
+    "area_id": 1,
+    "prefecture_id": 4
+  },
+  {
+    "id": 414,
+    "name_ja": "役内登山口（神室山）",
+    "name_en": "Yakunai Trailhead",
+    "lat": 38.9564,
+    "lng": 140.4856,
+    "elevation": 420,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 415,
+    "name_ja": "大滝キャンプ場（船形山）",
+    "name_en": "Otaki Campground",
+    "lat": 38.4419,
+    "lng": 140.6583,
+    "elevation": 720,
+    "area_id": 1,
+    "prefecture_id": 4
+  },
+  {
+    "id": 416,
+    "name_ja": "泡滝ダム（以東岳）",
+    "name_en": "Awataki Dam",
+    "lat": 38.4114,
+    "lng": 139.8739,
+    "elevation": 520,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 417,
+    "name_ja": "越沢登山口（摩耶山）",
+    "name_en": "Koesawa Trailhead",
+    "lat": 38.6017,
+    "lng": 139.6739,
+    "elevation": 150,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 418,
+    "name_ja": "白神岳登山口駐車場",
+    "name_en": "Shirakamidake Parking",
+    "lat": 40.5517,
+    "lng": 139.9486,
+    "elevation": 180,
+    "area_id": 1,
+    "prefecture_id": 2
+  },
+  {
+    "id": 421,
+    "name_ja": "乳頭温泉郷（乳頭山）",
+    "name_en": "Nyuto Onsen",
+    "lat": 39.8053,
+    "lng": 140.8039,
+    "elevation": 720,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 423,
+    "name_ja": "祝瓶山専用駐車場",
+    "name_en": "Iwaigame-yama Parking",
+    "lat": 38.1189,
+    "lng": 139.9056,
+    "elevation": 420,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 426,
+    "name_ja": "二王子神社（二王子岳）",
+    "name_en": "Ninoji Jinja",
+    "lat": 37.8972,
+    "lng": 139.3875,
+    "elevation": 300,
+    "area_id": 1,
+    "prefecture_id": 15
+  },
+  {
+    "id": 427,
+    "name_ja": "御神楽岳蝉ヶ平登山口",
+    "name_en": "Semigadaira Trailhead",
+    "lat": 37.5261,
+    "lng": 139.3364,
+    "elevation": 280,
+    "area_id": 1,
+    "prefecture_id": 15
+  },
+  {
+    "id": 428,
+    "name_ja": "守門岳二口登山口",
+    "name_en": "Sumondake Futakuchi",
+    "lat": 37.4244,
+    "lng": 139.1128,
+    "elevation": 450,
+    "area_id": 1,
+    "prefecture_id": 15
+  },
+  {
+    "id": 429,
+    "name_ja": "浅草岳ネズモチ平",
+    "name_en": "Nezumochi-daira",
+    "lat": 37.3519,
+    "lng": 139.2239,
+    "elevation": 850,
+    "area_id": 1,
+    "prefecture_id": 15
+  },
+  {
+    "id": 430,
+    "name_ja": "会津朝日岳登山口",
+    "name_en": "Aizu Asahidake Trailhead",
+    "lat": 37.2847,
+    "lng": 139.3486,
+    "elevation": 550,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 431,
+    "name_ja": "駒止湿原駐車場",
+    "name_en": "Komado Shitsugen Parking",
+    "lat": 37.2644,
+    "lng": 139.7289,
+    "elevation": 1100,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 432,
+    "name_ja": "七ヶ岳羽入登山口",
+    "name_en": "Nanatake Hanyu",
+    "lat": 37.1436,
+    "lng": 139.6586,
+    "elevation": 820,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 433,
+    "name_ja": "帝釈山馬坂峠",
+    "name_en": "Taishakusan Masaka Toge",
+    "lat": 37.0039,
+    "lng": 139.4678,
+    "elevation": 1780,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 434,
+    "name_ja": "荒海山八総登山口",
+    "name_en": "Arakaisan Yasou",
+    "lat": 37.0622,
+    "lng": 139.6917,
+    "elevation": 730,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 435,
+    "name_ja": "女峰山霧降高原",
+    "name_en": "Nyohosan Kirifuri Kogen",
+    "lat": 36.8183,
+    "lng": 139.6056,
+    "elevation": 1345,
+    "area_id": 1,
+    "prefecture_id": 9
+  },
+  {
+    "id": 436,
+    "name_ja": "太郎山志津乗越",
+    "name_en": "Taroyama Shizu Nokoshi",
+    "lat": 36.7864,
+    "lng": 139.4683,
+    "elevation": 1785,
+    "area_id": 1,
+    "prefecture_id": 9
+  },
+  {
+    "id": 437,
+    "name_ja": "皇海山銀山平",
+    "name_en": "Sukaisan Ginzandaira",
+    "lat": 36.6322,
+    "lng": 139.3811,
+    "elevation": 830,
+    "area_id": 1,
+    "prefecture_id": 9
+  },
+  {
+    "id": 438,
+    "name_ja": "武尊神社登山口（武尊山）",
+    "name_en": "Hotaka Jinja",
+    "lat": 36.7944,
+    "lng": 139.1356,
+    "elevation": 1100,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 439,
+    "name_ja": "白砂山野反湖キャンプ場",
+    "name_en": "Nozoriko Campground",
+    "lat": 36.6347,
+    "lng": 138.6419,
+    "elevation": 1520,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 440,
+    "name_ja": "岩菅山聖平登山口",
+    "name_en": "Iwasugayama Hijiridaira",
+    "lat": 36.7267,
+    "lng": 138.5306,
+    "elevation": 1610,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 441,
+    "name_ja": "ドンデン山荘（金北山）",
+    "name_en": "Donden Sanso",
+    "lat": 38.0772,
+    "lng": 138.4111,
+    "elevation": 890,
+    "area_id": 1,
+    "prefecture_id": 15
+  },
+  {
+    "id": 442,
+    "name_ja": "白銀川登山口（金北山）",
+    "name_en": "Shiroganegawa Trailhead",
+    "lat": 38.0336,
+    "lng": 138.3836,
+    "elevation": 150,
+    "area_id": 1,
+    "prefecture_id": 15
+  },
+  {
+    "id": 443,
+    "name_ja": "杉野沢橋（火打山・妙高山）",
+    "name_en": "Suginosawabashi",
+    "lat": 36.8844,
+    "lng": 138.1061,
+    "elevation": 1100,
+    "area_id": 1,
+    "prefecture_id": 15
+  },
+  {
+    "id": 444,
+    "name_ja": "笹ヶ峰キャンプ場（火打山）",
+    "name_en": "Sasagamine Campground",
+    "lat": 36.8833,
+    "lng": 138.0811,
+    "elevation": 1310,
+    "area_id": 1,
+    "prefecture_id": 15
+  },
+  {
+    "id": 445,
+    "name_ja": "燕温泉（妙高山）",
+    "name_en": "Tsubame Onsen",
+    "lat": 36.9125,
+    "lng": 138.1256,
+    "elevation": 1100,
+    "area_id": 1,
+    "prefecture_id": 15
+  },
+  {
+    "id": 446,
+    "name_ja": "雨飾高原キャンプ場",
+    "name_en": "Amakazari Kogen Campground",
+    "lat": 36.8539,
+    "lng": 137.9556,
+    "elevation": 1180,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 447,
+    "name_ja": "小谷温泉（雨飾山）",
+    "name_en": "Otari Onsen",
+    "lat": 36.8525,
+    "lng": 137.9406,
+    "elevation": 900,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 448,
+    "name_ja": "焼山林道ゲート",
+    "name_en": "Yakeyama Rindo Gate",
+    "lat": 36.9389,
+    "lng": 138.0381,
+    "elevation": 950,
+    "area_id": 1,
+    "prefecture_id": 15
+  },
+  {
+    "id": 450,
+    "name_ja": "蓮華温泉（白馬岳・朝日岳）",
+    "name_en": "Renge Onsen",
+    "lat": 36.8156,
+    "lng": 137.7811,
+    "elevation": 1470,
+    "area_id": 1,
+    "prefecture_id": 15
+  },
+  {
+    "id": 451,
+    "name_ja": "新穂高温泉（抜戸岳・笠ヶ岳）",
+    "name_en": "Shinhotaka Onsen",
+    "lat": 36.2803,
+    "lng": 137.5758,
+    "elevation": 1090,
+    "area_id": 1,
+    "prefecture_id": 21
+  },
+  {
+    "id": 452,
+    "name_ja": "わさび平小屋（笠ヶ岳経由）",
+    "name_en": "Wasabidaira Koya",
+    "lat": 36.3156,
+    "lng": 137.5861,
+    "elevation": 1402,
+    "area_id": 1,
+    "prefecture_id": 21
+  },
+  {
+    "id": 453,
+    "name_ja": "高瀬ダム（烏帽子岳・野口五郎岳）",
+    "name_en": "Takase Dam",
+    "lat": 36.4719,
+    "lng": 137.6917,
+    "elevation": 1270,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 456,
+    "name_ja": "黒部ダム（針ノ木岳）",
+    "name_en": "Kurobe Dam",
+    "lat": 36.5664,
+    "lng": 137.6619,
+    "elevation": 1450,
+    "area_id": 1,
+    "prefecture_id": 16
+  },
+  {
+    "id": 458,
+    "name_ja": "上高地・徳沢（前穂高岳）",
+    "name_en": "Tokusawa",
+    "lat": 36.2694,
+    "lng": 137.6836,
+    "elevation": 1560,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 459,
+    "name_ja": "岳沢湿原（前穂高岳経由）",
+    "name_en": "Takezawa",
+    "lat": 36.2575,
+    "lng": 137.6436,
+    "elevation": 1550,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 460,
+    "name_ja": "三股（蝶ヶ岳）",
+    "name_en": "Mitsumata Trailhead",
+    "lat": 36.2847,
+    "lng": 137.7781,
+    "elevation": 1350,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 463,
+    "name_ja": "有明山裏参道登山口",
+    "name_en": "Ariakeyama Urasando",
+    "lat": 36.3769,
+    "lng": 137.7658,
+    "elevation": 1100,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 464,
+    "name_ja": "濁河温泉（御嶽山）",
+    "name_en": "Nigorigo Onsen",
+    "lat": 35.9228,
+    "lng": 137.4789,
+    "elevation": 1800,
+    "area_id": 1,
+    "prefecture_id": 21
+  },
+  {
+    "id": 465,
+    "name_ja": "開田高原・木曽馬の里",
+    "name_en": "Kaida Kogen",
+    "lat": 35.9111,
+    "lng": 137.5867,
+    "elevation": 1100,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 467,
+    "name_ja": "仲ノ沢林道ゲート（奥茶臼岳）",
+    "name_en": "Nakanosawa Gate",
+    "lat": 35.6183,
+    "lng": 138.0319,
+    "elevation": 1450,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 471,
+    "name_ja": "田代登山口（大無間山）",
+    "name_en": "Tashiro Trailhead",
+    "lat": 35.1972,
+    "lng": 138.2056,
+    "elevation": 1050,
+    "area_id": 1,
+    "prefecture_id": 22
+  },
+  {
+    "id": 472,
+    "name_ja": "諏訪神社前（櫛形山）",
+    "name_en": "Suwa Jinja Trailhead",
+    "lat": 35.5683,
+    "lng": 138.3969,
+    "elevation": 850,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 473,
+    "name_ja": "ヴィラ雨畑（笊ヶ岳）",
+    "name_en": "Villa Ameahata",
+    "lat": 35.3853,
+    "lng": 138.3039,
+    "elevation": 520,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 474,
+    "name_ja": "早川町老平（笊ヶ岳）",
+    "name_en": "Oidaira Trailhead",
+    "lat": 35.3944,
+    "lng": 138.2917,
+    "elevation": 580,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 475,
+    "name_ja": "七面山登山口（表参道）",
+    "name_en": "Shichimen-san Omotesando",
+    "lat": 35.3789,
+    "lng": 138.3686,
+    "elevation": 500,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 477,
+    "name_ja": "越百山登山口（伊奈川ダム）",
+    "name_en": "Iagawa Dam Trailhead",
+    "lat": 35.6847,
+    "lng": 137.7472,
+    "elevation": 1080,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 478,
+    "name_ja": "安平路山入口",
+    "name_en": "Anpeijiyama Entrance",
+    "lat": 35.6186,
+    "lng": 137.7458,
+    "elevation": 1150,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 479,
+    "name_ja": "小秀山乙女の滝登山口",
+    "name_en": "Kohideyama Otome-no-taki",
+    "lat": 35.8014,
+    "lng": 137.3689,
+    "elevation": 950,
+    "area_id": 1,
+    "prefecture_id": 21
+  },
+  {
+    "id": 480,
+    "name_ja": "位山ダナ上駐車場",
+    "name_en": "Kurayama Dana-ue Parking",
+    "lat": 36.0356,
+    "lng": 137.2189,
+    "elevation": 1450,
+    "area_id": 1,
+    "prefecture_id": 21
+  },
+  {
+    "id": 481,
+    "name_ja": "能郷白山温見峠",
+    "name_en": "Nogo Hakusan Nukumi Toge",
+    "lat": 35.9189,
+    "lng": 136.6272,
+    "elevation": 1020,
+    "area_id": 1,
+    "prefecture_id": 21
+  },
+  {
+    "id": 482,
+    "name_ja": "金剛堂山栃谷登山口",
+    "name_en": "Kongodosan Tochitani",
+    "lat": 36.4239,
+    "lng": 137.0658,
+    "elevation": 1050,
+    "area_id": 1,
+    "prefecture_id": 16
+  },
+  {
+    "id": 483,
+    "name_ja": "白木峰八合目駐車場",
+    "name_en": "Shirakimine 8th Station",
+    "lat": 36.4161,
+    "lng": 137.1086,
+    "elevation": 1310,
+    "area_id": 1,
+    "prefecture_id": 16
+  },
+  {
+    "id": 484,
+    "name_ja": "釈迦新道入口（白山周辺）",
+    "name_en": "Shaka Shindo Entrance",
+    "lat": 36.1439,
+    "lng": 136.6853,
+    "elevation": 850,
+    "area_id": 1,
+    "prefecture_id": 17
+  },
+  {
+    "id": 485,
+    "name_ja": "笈ヶ岳中宮温泉登山口",
+    "name_en": "Oizuru-ga-take Chugyu Onsen",
+    "lat": 36.2164,
+    "lng": 136.7561,
+    "elevation": 680,
+    "area_id": 1,
+    "prefecture_id": 17
+  },
+  {
+    "id": 486,
+    "name_ja": "毛勝山馬場島登山口",
+    "name_en": "Kekatsuyama Banbajima",
+    "lat": 36.6322,
+    "lng": 137.5256,
+    "elevation": 760,
+    "area_id": 1,
+    "prefecture_id": 16
+  },
+  {
+    "id": 487,
+    "name_ja": "御在所ロープウエイ山上公園駅",
+    "name_en": "Gozaisho Ropeway Summit",
+    "lat": 35.0192,
+    "lng": 136.4133,
+    "elevation": 1180,
+    "area_id": 1,
+    "prefecture_id": 24
+  },
+  {
+    "id": 488,
+    "name_ja": "武奈ヶ岳坊村登山口",
+    "name_en": "Bunagadake Bomura Trailhead",
+    "lat": 35.2153,
+    "lng": 135.8911,
+    "elevation": 310,
+    "area_id": 1,
+    "prefecture_id": 25
+  },
+  {
+    "id": 489,
+    "name_ja": "山上ヶ岳洞川温泉",
+    "name_en": "Sanjogatake Dorogawa Onsen",
+    "lat": 34.2575,
+    "lng": 135.8822,
+    "elevation": 820,
+    "area_id": 1,
+    "prefecture_id": 29
+  },
+  {
+    "id": 490,
+    "name_ja": "釈迦ヶ岳峠（鈴鹿）",
+    "name_en": "Shakagatake Toge",
+    "lat": 35.0564,
+    "lng": 136.4389,
+    "elevation": 810,
+    "area_id": 1,
+    "prefecture_id": 24
+  },
+  {
+    "id": 491,
+    "name_ja": "伯耆大山・夏山登山口",
+    "name_en": "Hoki Daisen Natsuyama",
+    "lat": 35.3814,
+    "lng": 133.5317,
+    "elevation": 780,
+    "area_id": 1,
+    "prefecture_id": 31
+  },
+  {
+    "id": 492,
+    "name_ja": "三瓶山北の原登山口",
+    "name_en": "Sanbezan Kitanohara",
+    "lat": 35.1469,
+    "lng": 132.6139,
+    "elevation": 550,
+    "area_id": 1,
+    "prefecture_id": 32
+  },
+  {
+    "id": 493,
+    "name_ja": "三嶺名頃登山口",
+    "name_en": "Miune Nagoro Trailhead",
+    "lat": 33.8475,
+    "lng": 134.0208,
+    "elevation": 900,
+    "area_id": 1,
+    "prefecture_id": 36
+  },
+  {
+    "id": 494,
+    "name_ja": "東赤石岳筏津登山口",
+    "name_en": "Higashiakaishiyama Ikadazu",
+    "lat": 33.8839,
+    "lng": 133.3769,
+    "elevation": 720,
+    "area_id": 1,
+    "prefecture_id": 38
+  },
+  {
+    "id": 495,
+    "name_ja": "三ヶ所登山口（祖母岳）",
+    "name_en": "Sankasho Trailhead",
+    "lat": 32.8117,
+    "lng": 131.3258,
+    "elevation": 1050,
+    "area_id": 1,
+    "prefecture_id": 45
+  },
+  {
+    "id": 496,
+    "name_ja": "上色見熊野座神社（阿蘇・根子岳）",
+    "name_en": "Kamishikimi Kumanoza",
+    "lat": 32.8344,
+    "lng": 131.1186,
+    "elevation": 650,
+    "area_id": 1,
+    "prefecture_id": 43
+  },
+  {
+    "id": 497,
+    "name_ja": "市房ダム登山口",
+    "name_en": "Ichifusa Dam Trailhead",
+    "lat": 32.2753,
+    "lng": 131.0639,
+    "elevation": 280,
+    "area_id": 1,
+    "prefecture_id": 43
+  },
+  {
+    "id": 499,
+    "name_ja": "尾之間登山口（屋久島）",
+    "name_en": "Ono-ma Trailhead",
+    "lat": 30.2458,
+    "lng": 130.5619,
+    "elevation": 150,
+    "area_id": 1,
+    "prefecture_id": 46
+  },
+  {
+    "id": 501,
+    "name_ja": "美瑛富士避難小屋ゲート",
+    "name_en": "Biei Fuji Gate",
+    "lat": 43.4906,
+    "lng": 142.7156,
+    "elevation": 1050,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 502,
+    "name_ja": "元浦川林道ゲート（神威岳）",
+    "name_en": "Motourakawa Rindo Gate",
+    "lat": 42.4553,
+    "lng": 142.8436,
+    "elevation": 420,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 503,
+    "name_ja": "キロロリゾート登山口（余市岳）",
+    "name_en": "Kiroro Resort Trailhead",
+    "lat": 43.0642,
+    "lng": 141.0028,
+    "elevation": 550,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 504,
+    "name_ja": "五色温泉登山口（ニセコアンヌプリ）",
+    "name_en": "Goshiki Onsen Trailhead",
+    "lat": 42.8739,
+    "lng": 140.6392,
+    "elevation": 750,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 505,
+    "name_ja": "千走川温泉登山口（狩場山）",
+    "name_en": "Chisairigawa Onsen Trailhead",
+    "lat": 42.6322,
+    "lng": 139.9886,
+    "elevation": 180,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 506,
+    "name_ja": "旧道口（大千軒岳）",
+    "name_en": "Daisengen-dake Kyudo",
+    "lat": 41.5658,
+    "lng": 140.2136,
+    "elevation": 320,
+    "area_id": 1,
+    "prefecture_id": 1
+  },
+  {
+    "id": 507,
+    "name_ja": "中才登山口（五葉山）",
+    "name_en": "Nakasa Trailhead",
+    "lat": 39.2208,
+    "lng": 141.7056,
+    "elevation": 710,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 508,
+    "name_ja": "赤坂峠（五葉山）",
+    "name_en": "Akasaka Toge",
+    "lat": 39.2144,
+    "lng": 141.7619,
+    "elevation": 710,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 511,
+    "name_ja": "夏油温泉登山口（駒ヶ岳）",
+    "name_en": "Geto Onsen Trailhead",
+    "lat": 39.2131,
+    "lng": 140.8875,
+    "elevation": 640,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 513,
+    "name_ja": "三ツ石山網張温泉登山口",
+    "name_en": "Mitsuishiyama Amihari Onsen",
+    "lat": 39.7711,
+    "lng": 140.9753,
+    "elevation": 750,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 514,
+    "name_ja": "御在所沼登山口（三ツ石山）",
+    "name_en": "Gozaishonuma Trailhead",
+    "lat": 39.8164,
+    "lng": 140.9419,
+    "elevation": 820,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 515,
+    "name_ja": "森吉山ヒバクラ岳登山口",
+    "name_en": "Moriyoshizan Hibakuradake",
+    "lat": 40.0053,
+    "lng": 140.5736,
+    "elevation": 650,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 516,
+    "name_ja": "大平中沢登山口（太平山）",
+    "name_en": "Taiheizan Ohira Nakazawa",
+    "lat": 39.7925,
+    "lng": 140.2458,
+    "elevation": 220,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 517,
+    "name_ja": "旭又登山口（太平山）",
+    "name_en": "Asahimata Trailhead",
+    "lat": 39.7911,
+    "lng": 140.3017,
+    "elevation": 280,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 518,
+    "name_ja": "大印登山口（真昼岳）",
+    "name_en": "Omashiri Trailhead",
+    "lat": 39.4756,
+    "lng": 140.6136,
+    "elevation": 450,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 519,
+    "name_ja": "赤倉登山口（真昼岳）",
+    "name_en": "Akakura Trailhead",
+    "lat": 39.4589,
+    "lng": 140.6017,
+    "elevation": 380,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 520,
+    "name_ja": "薬師川登山口（薬師岳）",
+    "name_en": "Yakushigawa Trailhead",
+    "lat": 39.5436,
+    "lng": 141.3856,
+    "elevation": 720,
+    "area_id": 1,
+    "prefecture_id": 3
+  },
+  {
+    "id": 521,
+    "name_ja": "馬場目岳中央登山口",
+    "name_en": "Babamedake Chuo Trailhead",
+    "lat": 39.8931,
+    "lng": 140.3364,
+    "elevation": 320,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 522,
+    "name_ja": "焼山登山口（八幡平周辺）",
+    "name_en": "Yakeyama Trailhead",
+    "lat": 39.9744,
+    "lng": 140.7356,
+    "elevation": 650,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 523,
+    "name_ja": "玉川温泉（焼山）",
+    "name_en": "Tamagawa Onsen",
+    "lat": 39.9625,
+    "lng": 140.7236,
+    "elevation": 740,
+    "area_id": 1,
+    "prefecture_id": 5
+  },
+  {
+    "id": 524,
+    "name_ja": "志津乗越（女峰山）",
+    "name_en": "Shizu Nokoshi",
+    "lat": 36.7864,
+    "lng": 139.4683,
+    "elevation": 1785,
+    "area_id": 1,
+    "prefecture_id": 9
+  },
+  {
+    "id": 525,
+    "name_ja": "裏磐梯登山口（小野川湖側）",
+    "name_en": "Urabandai Trailhead",
+    "lat": 37.6436,
+    "lng": 140.0617,
+    "elevation": 820,
+    "area_id": 1,
+    "prefecture_id": 7
+  },
+  {
+    "id": 526,
+    "name_ja": "白布峠（西吾妻山経由）",
+    "name_en": "Shirabu Toge",
+    "lat": 37.7378,
+    "lng": 140.0911,
+    "elevation": 1404,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 527,
+    "name_ja": "不忘山しらみず登山口",
+    "name_en": "Fubousan Shiramizu",
+    "lat": 38.0336,
+    "lng": 140.5286,
+    "elevation": 650,
+    "area_id": 1,
+    "prefecture_id": 4
+  },
+  {
+    "id": 528,
+    "name_ja": "硯石登山口（不忘山）",
+    "name_en": "Suzuriishi Trailhead",
+    "lat": 38.0536,
+    "lng": 140.5486,
+    "elevation": 620,
+    "area_id": 1,
+    "prefecture_id": 4
+  },
+  {
+    "id": 529,
+    "name_ja": "すみかわスノーパーク（屏風岳）",
+    "name_en": "Sumikawa Snow Park",
+    "lat": 38.1256,
+    "lng": 140.4853,
+    "elevation": 1100,
+    "area_id": 1,
+    "prefecture_id": 4
+  },
+  {
+    "id": 530,
+    "name_ja": "古寺鉱泉（大朝日岳経由）",
+    "name_en": "Kodera Kosen",
+    "lat": 38.3094,
+    "lng": 139.9572,
+    "elevation": 660,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 534,
+    "name_ja": "羽黒山随神門（月山方面）",
+    "name_en": "Hagurosan Zuishinmon",
+    "lat": 38.7067,
+    "lng": 139.9689,
+    "elevation": 180,
+    "area_id": 1,
+    "prefecture_id": 6
+  },
+  {
+    "id": 538,
+    "name_ja": "船形山大滝キャンプ場",
+    "name_en": "Funagatayama Otaki",
+    "lat": 38.4419,
+    "lng": 140.6583,
+    "elevation": 720,
+    "area_id": 1,
+    "prefecture_id": 4
+  },
+  {
+    "id": 539,
+    "name_ja": "屏風岳すみかわスノーパーク",
+    "name_en": "Sumikawa Snow Park",
+    "lat": 38.1256,
+    "lng": 140.4853,
+    "elevation": 1100,
+    "area_id": 1,
+    "prefecture_id": 4
+  },
+  {
+    "id": 540,
+    "name_ja": "泉ヶ岳スキー場駐車場",
+    "name_en": "Izumigatake Ski Resort",
+    "lat": 38.4111,
+    "lng": 140.7139,
+    "elevation": 520,
+    "area_id": 1,
+    "prefecture_id": 4
+  },
+  {
+    "id": 543,
+    "name_ja": "日光湯元温泉（温泉ヶ岳）",
+    "name_en": "Nikko Yumoto Onsen",
+    "lat": 36.8083,
+    "lng": 139.4256,
+    "elevation": 1480,
+    "area_id": 1,
+    "prefecture_id": 9
+  },
+  {
+    "id": 544,
+    "name_ja": "金精峠（金精山）",
+    "name_en": "Konsei Toge",
+    "lat": 36.8258,
+    "lng": 139.3894,
+    "elevation": 2024,
+    "area_id": 1,
+    "prefecture_id": 9
+  },
+  {
+    "id": 546,
+    "name_ja": "霧降高原キスゲ平（女峰山）",
+    "name_en": "Kisuge-daira",
+    "lat": 36.8183,
+    "lng": 139.6056,
+    "elevation": 1345,
+    "area_id": 1,
+    "prefecture_id": 9
+  },
+  {
+    "id": 547,
+    "name_ja": "黒鐵門（白根山経由）",
+    "name_en": "Kuroganemon Trailhead",
+    "lat": 36.6214,
+    "lng": 139.3756,
+    "elevation": 1200,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 548,
+    "name_ja": "丸山登山口（赤城山周辺）",
+    "name_en": "Maruyama Trailhead",
+    "lat": 36.5619,
+    "lng": 139.1864,
+    "elevation": 1150,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 549,
+    "name_ja": "鼻曲山二度上峠",
+    "name_en": "Nidouage Toge",
+    "lat": 36.4389,
+    "lng": 138.6481,
+    "elevation": 1390,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 550,
+    "name_ja": "浅間隠山登山口",
+    "name_en": "Asamagakushiyama Trailhead",
+    "lat": 36.4561,
+    "lng": 138.6547,
+    "elevation": 1340,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 551,
+    "name_ja": "榛名湖畔（掃部ヶ岳）",
+    "name_en": "Harunako Han",
+    "lat": 36.4719,
+    "lng": 138.8686,
+    "elevation": 1090,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 552,
+    "name_ja": "妙義山中間道登山口",
+    "name_en": "Myogisan Nakamichi",
+    "lat": 36.2972,
+    "lng": 138.7619,
+    "elevation": 550,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 553,
+    "name_ja": "荒船山内山峠",
+    "name_en": "Arafuneyama Uchiyama Toge",
+    "lat": 36.2153,
+    "lng": 138.5833,
+    "elevation": 1060,
+    "area_id": 1,
+    "prefecture_id": 10
+  },
+  {
+    "id": 557,
+    "name_ja": "白馬八方展望宿舎",
+    "name_en": "Happo-ike Sanso",
+    "lat": 36.7028,
+    "lng": 137.8281,
+    "elevation": 1830,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 559,
+    "name_ja": "五竜遠見スキー場（五竜岳経由）",
+    "name_en": "Goryu Toomi Ski Resort",
+    "lat": 36.6586,
+    "lng": 137.8447,
+    "elevation": 820,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 563,
+    "name_ja": "中の湯温泉（焼岳）",
+    "name_en": "Nakanoyu Onsen Trailhead",
+    "lat": 36.2164,
+    "lng": 137.6017,
+    "elevation": 1580,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 564,
+    "name_ja": "新中の湯登山口（焼岳）",
+    "name_en": "Shin-Nakanoyu Trailhead",
+    "lat": 36.2044,
+    "lng": 137.5969,
+    "elevation": 1500,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 565,
+    "name_ja": "乗鞍岳畳平バスターミナル",
+    "name_en": "Norikuradake Tatamidaira",
+    "lat": 36.1172,
+    "lng": 137.5519,
+    "elevation": 2702,
+    "area_id": 1,
+    "prefecture_id": 21
+  },
+  {
+    "id": 566,
+    "name_ja": "乗鞍高原三本滝ゲート",
+    "name_en": "Sanbon-taki Gate",
+    "lat": 36.1114,
+    "lng": 137.6083,
+    "elevation": 1800,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 567,
+    "name_ja": "鉢盛山波田林道ゲート",
+    "name_en": "Hachimoriyama Hata Rindo",
+    "lat": 36.1053,
+    "lng": 137.7811,
+    "elevation": 1520,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 570,
+    "name_ja": "舟山十字路（阿弥陀岳）",
+    "name_en": "Funayama Jujiro",
+    "lat": 35.9686,
+    "lng": 138.3039,
+    "elevation": 1640,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 572,
+    "name_ja": "御座山栗生登山口",
+    "name_en": "Ogurayama Kurio Trailhead",
+    "lat": 36.0522,
+    "lng": 138.5369,
+    "elevation": 1120,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 573,
+    "name_ja": "北沢峠（仙丈ヶ岳・甲斐駒ヶ岳周辺）",
+    "name_en": "Kitazawa Toge",
+    "lat": 35.7194,
+    "lng": 138.2094,
+    "elevation": 2032,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 574,
+    "name_ja": "奈良田（農鳥岳）",
+    "name_en": "Narada Trailhead",
+    "lat": 35.5808,
+    "lng": 138.2975,
+    "elevation": 820,
+    "area_id": 1,
+    "prefecture_id": 19
+  },
+  {
+    "id": 577,
+    "name_ja": "鳥倉林道ゲート（塩見岳経由）",
+    "name_en": "Torikura Gate",
+    "lat": 35.5414,
+    "lng": 138.1186,
+    "elevation": 1640,
+    "area_id": 1,
+    "prefecture_id": 20
+  },
+  {
+    "id": 578,
+    "name_ja": "椹島ロッジ（赤石岳・聖岳経由）",
+    "name_en": "Sawarajima Lodge",
+    "lat": 35.4664,
+    "lng": 138.2258,
+    "elevation": 1120,
+    "area_id": 1,
+    "prefecture_id": 22
+  },
+  {
+    "id": 583,
+    "name_ja": "藤原岳大貝戸登山口",
+    "name_en": "Fujiwaradake Ogaido",
+    "lat": 35.1517,
+    "lng": 136.4683,
+    "elevation": 160,
+    "area_id": 1,
+    "prefecture_id": 24
+  },
+  {
+    "id": 584,
+    "name_ja": "西藤原駅（藤原岳）",
+    "name_en": "Nishi-Fujiwara Station",
+    "lat": 35.1561,
+    "lng": 136.4636,
+    "elevation": 150,
+    "area_id": 1,
+    "prefecture_id": 24
+  },
+  {
+    "id": 585,
+    "name_ja": "三峰山ゆりわれコース口",
+    "name_en": "Mitsumeyama Yuriware",
+    "lat": 34.4514,
+    "lng": 136.2056,
+    "elevation": 720,
+    "area_id": 1,
+    "prefecture_id": 24
+  },
+  {
+    "id": 586,
+    "name_ja": "大台ヶ原駐車場",
+    "name_en": "Odaigahara Parking",
+    "lat": 34.1853,
+    "lng": 136.1092,
+    "elevation": 1570,
+    "area_id": 1,
+    "prefecture_id": 29
+  },
+  {
+    "id": 587,
+    "name_ja": "氷ノ山キャンプ場（わかさ）",
+    "name_en": "Hyonosen Campground",
+    "lat": 35.35,
+    "lng": 134.46,
+    "elevation": 650,
+    "area_id": 1,
+    "prefecture_id": 31
+  },
+  {
+    "id": 589,
+    "name_ja": "那岐山登山口（鳥取側）",
+    "name_en": "Nagisan Trailhead",
+    "lat": 35.1219,
+    "lng": 134.1836,
+    "elevation": 650,
+    "area_id": 1,
+    "prefecture_id": 31
+  },
+  {
+    "id": 590,
+    "name_ja": "扇ノ山・上地登山口",
+    "name_en": "Oginosen Ueji Trailhead",
+    "lat": 35.4117,
+    "lng": 134.4119,
+    "elevation": 820,
+    "area_id": 1,
+    "prefecture_id": 31
+  },
+  {
+    "id": 592,
+    "name_ja": "那岐山完戸登山口（岡山側）",
+    "name_en": "Nagisan Maito Trailhead",
+    "lat": 35.1011,
+    "lng": 134.1736,
+    "elevation": 450,
+    "area_id": 1,
+    "prefecture_id": 33
+  },
+  {
+    "id": 593,
+    "name_ja": "道後山月見ヶ丘駐車場",
+    "name_en": "Dogoyama Tsukimigaoka",
+    "lat": 35.0664,
+    "lng": 133.2436,
+    "elevation": 1070,
+    "area_id": 1,
+    "prefecture_id": 34
+  },
+  {
+    "id": 594,
+    "name_ja": "吾妻山ロッジキャンプ場",
+    "name_en": "Azumayama Lodge",
+    "lat": 35.0536,
+    "lng": 133.0536,
+    "elevation": 1000,
+    "area_id": 1,
+    "prefecture_id": 34
+  },
+  {
+    "id": 596,
+    "name_ja": "三嶺・名頃登山口",
+    "name_en": "Miune Nagoro",
+    "lat": 33.8475,
+    "lng": 134.0208,
+    "elevation": 900,
+    "area_id": 1,
+    "prefecture_id": 36
+  },
+  {
+    "id": 597,
+    "name_ja": "三嶺・光石登山口",
+    "name_en": "Miune Mitsuishi",
+    "lat": 33.8053,
+    "lng": 133.9556,
+    "elevation": 580,
+    "area_id": 1,
+    "prefecture_id": 39
+  },
+  {
+    "id": 598,
+    "name_ja": "東赤石岳・筏津登山口",
+    "name_en": "Higashiakaishiyama Ikadazu",
+    "lat": 33.8839,
+    "lng": 133.3769,
+    "elevation": 720,
+    "area_id": 1,
+    "prefecture_id": 38
+  },
+  {
+    "id": 599,
+    "name_ja": "笹ヶ峰・下津池登山口",
+    "name_en": "Sasagamine Shimotsuike",
+    "lat": 33.8569,
+    "lng": 133.2536,
+    "elevation": 650,
+    "area_id": 1,
+    "prefecture_id": 38
+  },
+  {
+    "id": 600,
+    "name_ja": "石鎚山・土小屋",
+    "name_en": "Ishizuchi Tsuchigoya",
+    "lat": 33.7483,
+    "lng": 133.1539,
+    "elevation": 1492,
+    "area_id": 1,
+    "prefecture_id": 38
+  },
+  {
+    "id": 604,
+    "name_ja": "市房山キャンプ場",
+    "name_en": "Ichifusayama Campground",
+    "lat": 32.3086,
+    "lng": 131.1139,
+    "elevation": 580,
+    "area_id": 1,
+    "prefecture_id": 43
+  },
+  {
+    "id": 607,
+    "name_ja": "白谷雲水峡（太鼓岩・宮之浦岳経由）",
+    "name_en": "Shiratani Unsuikyo",
+    "lat": 30.3853,
+    "lng": 130.5836,
+    "elevation": 620,
+    "area_id": 1,
+    "prefecture_id": 46
+  },
+  {
+    "id": 608,
+    "name_ja": "英彦山奉幣殿",
+    "name_en": "Hikosan Hoheiden",
+    "lat": 33.4844,
+    "lng": 130.9169,
+    "elevation": 720,
+    "area_id": 1,
+    "prefecture_id": 40
+  },
+  {
+    "id": 609,
+    "name_ja": "由布岳正面登山口",
+    "name_en": "Yufudake Front Trailhead",
+    "lat": 33.2556,
+    "lng": 131.3969,
+    "elevation": 780,
+    "area_id": 1,
+    "prefecture_id": 44
+  },
+  {
+    "id": 610,
+    "name_ja": "鶴見岳一の瀬登山口",
+    "name_en": "Tsurumidake Ichinose",
+    "lat": 33.2847,
+    "lng": 131.4486,
+    "elevation": 520,
+    "area_id": 1,
+    "prefecture_id": 44
+  },
+  {
+    "id": 611,
+    "name_ja": "別府ロープウェイ高原駅",
+    "name_en": "Beppu Ropeway Kogen Station",
+    "lat": 33.2856,
+    "lng": 131.4439,
+    "elevation": 500,
+    "area_id": 1,
+    "prefecture_id": 44
+  },
+  {
+    "id": 612,
+    "name_ja": "大船山・今水登山口",
+    "name_en": "Taisenzan Imamizu",
+    "lat": 33.0783,
+    "lng": 131.2886,
+    "elevation": 810,
+    "area_id": 1,
+    "prefecture_id": 44
+  },
+  {
+    "id": 613,
+    "name_ja": "湧蓋山・はげの湯登山口",
+    "name_en": "Waitazan Hagenoyu",
+    "lat": 33.1364,
+    "lng": 131.1256,
+    "elevation": 750,
+    "area_id": 1,
+    "prefecture_id": 43
+  },
+  {
+    "id": 614,
+    "name_ja": "国東半島・両子寺（両子山）",
+    "name_en": "Futago-ji Trailhead",
+    "lat": 33.5819,
+    "lng": 131.6056,
+    "elevation": 350,
+    "area_id": 1,
+    "prefecture_id": 44
+  },
+  {
+    "id": 615,
+    "name_ja": "開聞岳二合目登山口",
+    "name_en": "Kaimondake 2nd Station",
+    "lat": 31.1883,
+    "lng": 130.5286,
+    "elevation": 160,
+    "area_id": 1,
+    "prefecture_id": 46
   }
 ]

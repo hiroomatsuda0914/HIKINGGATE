@@ -24,3 +24,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Mapbox スケールコントロールのスタイル上書き */
+.mapboxgl-ctrl-scale {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  border-color: #374151 !important;
+  color: #111827 !important;
+  font-size: 11px !important;
+  text-align: center !important;
+}

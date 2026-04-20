@@ -10,6 +10,7 @@ import { MAP_INITIAL_ZOOM } from '../lib/constants/mapStyles';
 import { buildHikingPointsFeatureCollection } from '../lib/map/hikingPointsFeatureCollections';
 import { fetchTrailhead } from '../lib/queries/trailheads';
 import { fetchSummits } from '../lib/queries/summits';
+import AiChat from './AiChat';
 
 const SOURCE_ID = 'hiking-points';
 const LAYER_ID = 'hiking-circles';
@@ -225,7 +226,7 @@ export default function MapContainer() {
           ) : (
             <>
               <div className="mb-3 text-xs text-gray-600">選択: {selection.nameJa}</div>
-              <div className="text-sm text-gray-400">ここにAIとの会話UIが入ります</div>
+              <AiChat kind={selection.kind} nameJa={selection.nameJa} />
             </>
           )}
         </aside>

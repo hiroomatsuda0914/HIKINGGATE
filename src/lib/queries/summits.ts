@@ -11,6 +11,14 @@ export interface Summit {
     lngLat: [number, number];
 }
 
+// 山頂の取得範囲（緯度経度の最小値・最大値）を表す型
+export type Bounds = {
+  minLat: number;
+  maxLat: number;
+  minLng: number;
+  maxLng: number;
+}
+
 // --- 型定義：DB（Supabase）から「届く」形 ---
 // DBの列名（スネークケース）に合わせている
 interface SummitRow {
@@ -33,10 +41,14 @@ function mapRow(row: SummitRow): Summit {
 }
 
 // summitsテーブルからデータを取得する
-export async function fetchSummits(): Promise<Summit[]> {
+export async function fetchSummits(bounds: Bounds): Promise<Summit[]> {
     const { data, error } = await supabase
     .from("summits")
     .select("id, name_ja, name_en, lat, lng")
+    .gte("lat", bounds.minLat)
+    .lte("lat", bounds.maxLat)
+    .gte("lng", bounds.minLng)
+    .lte("lng", bounds.maxLng)
     .order("name_ja", { ascending: true });
     console.log(data);
   if (error) {

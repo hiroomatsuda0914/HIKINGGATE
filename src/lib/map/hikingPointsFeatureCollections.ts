@@ -13,6 +13,7 @@ export interface SummitRow {
     id: string;
     nameJa: string;
     lngLat: [number, number];
+    meizanRank: number | null;
 }
 
 export function buildHikingPointsFeatureCollection(
@@ -50,6 +51,7 @@ export function buildHikingPointsFeatureCollection(
                     id: s.id,
                     kind: 'summit' as const,
                     nameJa: s.nameJa,
+                    meizanRank: s.meizanRank,
                 },
             })),
         ],

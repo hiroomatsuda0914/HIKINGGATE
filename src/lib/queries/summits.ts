@@ -9,6 +9,7 @@ export interface Summit {
     nameJa: string;
     nameEn: string;
     lngLat: [number, number];
+    meizanRank: number | null; // 日本の山の格付け（例: 日本百名山なら1、二百名山なら2、三百名山なら3、それ以外は0）
 }
 
 // 山頂の取得範囲（緯度経度の最小値・最大値）を表す型
@@ -27,6 +28,7 @@ interface SummitRow {
     name_en: string;
     lat: number;
     lng: number;
+    meizan_rank: number | null;
 }
 
 // --- 変換関数（マッピング） ---
@@ -37,6 +39,7 @@ function mapRow(row: SummitRow): Summit {
         nameJa: row.name_ja,
         nameEn: row.name_en,
         lngLat: [row.lng, row.lat],
+        meizanRank: row.meizan_rank
     };
 }
 
@@ -44,7 +47,7 @@ function mapRow(row: SummitRow): Summit {
 export async function fetchSummits(bounds: Bounds): Promise<Summit[]> {
     const { data, error } = await supabase
     .from("summits")
-    .select("id, name_ja, name_en, lat, lng")
+    .select("id, name_ja, name_en, lat, lng, meizan_rank")
     .gte("lat", bounds.minLat)
     .lte("lat", bounds.maxLat)
     .gte("lng", bounds.minLng)

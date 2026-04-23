@@ -14,6 +14,56 @@ import AiChat from './AiChat';
 
 const SOURCE_ID = 'hiking-points';
 const LAYER_ID = 'hiking-circles';
+const SUMMIT_LAYER_ID = 'summit-symbols';
+const TRAILHEAD_LAYER_ID = 'trailhead-symbols';
+
+function createSummitImageData(size: number): ImageData {
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d')!;
+  const s = size / 100;
+  const gradient = ctx.createLinearGradient(0, 75 * s, 0, 20 * s);
+  gradient.addColorStop(0, '#16a34a');
+  gradient.addColorStop(1, '#ffffff');
+  ctx.fillStyle = gradient;
+  ctx.strokeStyle = gradient;
+  ctx.lineWidth = 12 * s;
+  ctx.lineJoin = 'round';
+  ctx.beginPath();
+  ctx.moveTo(50 * s, 20 * s);
+  ctx.lineTo(18 * s, 75 * s);
+  ctx.lineTo(82 * s, 75 * s);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  return ctx.getImageData(0, 0, size, size);
+}
+
+function createTrailheadImageData(size: number): ImageData {
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d')!;
+  const s = size / 100;
+  ctx.strokeStyle = '#2563eb';
+  ctx.lineWidth = 8 * s;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.beginPath();
+  ctx.arc(50 * s, 50 * s, 40 * s, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(35 * s, 55 * s);
+  ctx.lineTo(50 * s, 40 * s);
+  ctx.lineTo(65 * s, 55 * s);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(50 * s, 40 * s);
+  ctx.lineTo(50 * s, 65 * s);
+  ctx.stroke();
+  return ctx.getImageData(0, 0, size, size);
+}
 
 type SidebarSelection = {
   kind: 'trailhead' | 'summit' | 'hut-rag';
@@ -102,6 +152,7 @@ export default function MapContainer() {
         id: LAYER_ID,
         type: 'circle',
         source: SOURCE_ID,
+        filter: ['==', ['get', 'kind'], 'user'],
         paint: {
           'circle-radius': [
             'match',
@@ -130,9 +181,51 @@ export default function MapContainer() {
         },
       });
 
+      map.addLayer({
+        id: SUMMIT_LAYER_ID,
+        type: 'symbol',
+        source: SOURCE_ID,
+        filter: ['==', ['get', 'kind'], 'summit'],
+        layout: {
+          'icon-image': 'summit-icon',
+          'icon-size': 0.6,
+          'text-field': [
+            'case',
+            ['==', ['get', 'meizanRank'], 100], '100',
+            ['==', ['get', 'meizanRank'], 200], '200',
+            ['==', ['get', 'meizanRank'], 300], '300',
+            '',
+          ],
+          'text-anchor': 'center',
+          'text-offset': [0, 0.35],
+          'text-size': 10,
+          'icon-allow-overlap': true,
+          'text-allow-overlap': true,
+        },
+        paint: {
+          'text-color': '#ffffff',
+        },
+      });
+
+      map.addLayer({
+        id: TRAILHEAD_LAYER_ID,
+        type: 'symbol',
+        source: SOURCE_ID,
+        filter: ['==', ['get', 'kind'], 'trailhead'],
+        layout: {
+          'icon-image': 'trailhead-icon',
+          'icon-size': 0.6,
+          'icon-allow-overlap': true,
+        },
+      });
+
       map.on('click', LAYER_ID, onClickCircles);
+      map.on('click', SUMMIT_LAYER_ID, onClickCircles);
+      map.on('click', TRAILHEAD_LAYER_ID, onClickCircles);
       map.on('mouseenter', LAYER_ID, onMouseEnter);
+      map.on('mouseenter', TRAILHEAD_LAYER_ID, onMouseEnter);
       map.on('mouseleave', LAYER_ID, onMouseLeave);
+      map.on('mouseleave', TRAILHEAD_LAYER_ID, onMouseLeave);
     };
 
     const loadData = async () => {
@@ -163,6 +256,12 @@ export default function MapContainer() {
     );
 
     map.once('load', () => {
+      if (!map.hasImage('summit-icon')) {
+        map.addImage('summit-icon', createSummitImageData(60));
+      }
+      if (!map.hasImage('trailhead-icon')) {
+        map.addImage('trailhead-icon', createTrailheadImageData(60));
+      }
       setup();
       setTimeout(() => {
         map.easeTo({ zoom: 8, duration: 2000 });
@@ -181,8 +280,12 @@ export default function MapContainer() {
       if (debounceTimer) clearTimeout(debounceTimer);
       cancelled = true;
       map.off('click', LAYER_ID, onClickCircles);
+      map.off('click', SUMMIT_LAYER_ID, onClickCircles);
+      map.off('click', TRAILHEAD_LAYER_ID, onClickCircles);
       map.off('mouseenter', LAYER_ID, onMouseEnter);
+      map.off('mouseenter', TRAILHEAD_LAYER_ID, onMouseEnter);
       map.off('mouseleave', LAYER_ID, onMouseLeave);
+      map.off('mouseleave', TRAILHEAD_LAYER_ID, onMouseLeave);
       map.off('moveend', onMoveEnd);
       map.remove();
       mapInstanceRef.current = null;

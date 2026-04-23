@@ -1,7 +1,13 @@
 <svg width="60" height="60" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="mountain-icon">
+  <defs>
+    <linearGradient id="summitGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
   <path d="M50 20L18 75H82L50 20Z" 
-        fill="currentColor" 
-        stroke="currentColor" 
+        fill="url(#summitGrad)"
+        stroke="url(#summitGrad)"
         stroke-width="12" 
         stroke-linejoin="round"/>
 </svg>

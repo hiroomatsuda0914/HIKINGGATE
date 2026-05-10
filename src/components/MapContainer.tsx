@@ -8,6 +8,7 @@ import mapboxgl from 'mapbox-gl';
 import { useUserLocation } from '../lib/hooks/useUserLocation';
 import { MAP_INITIAL_ZOOM } from '../lib/constants/mapStyles';
 import { buildHikingPointsFeatureCollection } from '../lib/map/hikingPointsFeatureCollections';
+import { TRAILHEAD_SYMBOL_LAYERS } from '../lib/map/trailheadSymbolPaths';
 import { fetchTrailhead } from '../lib/queries/trailheads';
 import { fetchSummits } from '../lib/queries/summits';
 import AiChat from './AiChat';
@@ -45,23 +46,15 @@ function createTrailheadImageData(size: number): ImageData {
   canvas.width = size;
   canvas.height = size;
   const ctx = canvas.getContext('2d')!;
-  const s = size / 100;
-  ctx.strokeStyle = '#2563eb';
-  ctx.lineWidth = 8 * s;
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
-  ctx.beginPath();
-  ctx.arc(50 * s, 50 * s, 40 * s, 0, Math.PI * 2);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(35 * s, 55 * s);
-  ctx.lineTo(50 * s, 40 * s);
-  ctx.lineTo(65 * s, 55 * s);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(50 * s, 40 * s);
-  ctx.lineTo(50 * s, 65 * s);
-  ctx.stroke();
+  const vb = 1024;
+  ctx.setTransform(size / vb, 0, 0, size / vb, 0, 0);
+  for (const { d, tx, ty, fill } of TRAILHEAD_SYMBOL_LAYERS) {
+    ctx.save();
+    ctx.translate(tx, ty);
+    ctx.fillStyle = fill;
+    ctx.fill(new Path2D(d));
+    ctx.restore();
+  }
   return ctx.getImageData(0, 0, size, size);
 }
 
@@ -181,6 +174,19 @@ export default function MapContainer() {
         },
       });
 
+      // symbol は後から add した方が上に描画される → 山頂を登山口より手前にするため trailhead を先に追加する。
+      map.addLayer({
+        id: TRAILHEAD_LAYER_ID,
+        type: 'symbol',
+        source: SOURCE_ID,
+        filter: ['==', ['get', 'kind'], 'trailhead'],
+        layout: {
+          'icon-image': 'trailhead-icon',
+          'icon-size': 0.6,
+          'icon-allow-overlap': true,
+        },
+      });
+
       map.addLayer({
         id: SUMMIT_LAYER_ID,
         type: 'symbol',
@@ -204,18 +210,6 @@ export default function MapContainer() {
         },
         paint: {
           'text-color': '#ffffff',
-        },
-      });
-
-      map.addLayer({
-        id: TRAILHEAD_LAYER_ID,
-        type: 'symbol',
-        source: SOURCE_ID,
-        filter: ['==', ['get', 'kind'], 'trailhead'],
-        layout: {
-          'icon-image': 'trailhead-icon',
-          'icon-size': 0.6,
-          'icon-allow-overlap': true,
         },
       });
 

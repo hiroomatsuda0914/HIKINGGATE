@@ -70,10 +70,12 @@ export default function MapContainer() {
   const mapInstanceRef = useRef<mapboxgl.Map | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selection, setSelection] = useState<SidebarSelection | null>(null);
+  const [trailheadMode, setTrailheadMode] = useState<'access' | 'summits'| null>(null);
 
   const openSidebar = useCallback((next: SidebarSelection) => {
     setSidebarOpen(true);
     setSelection(next);
+    setTrailheadMode(null);
   }, []);
 
   const closeSidebar = useCallback(() => {
@@ -323,7 +325,34 @@ export default function MapContainer() {
           ) : (
             <>
               <div className="mb-3 text-xs text-gray-600">選択: {selection.nameJa}</div>
-              <AiChat kind={selection.kind} nameJa={selection.nameJa} />
+              {selection.kind === 'trailhead' ? (
+                trailheadMode === null ? (
+                  <div className="flex flex-col gap-2">
+                    <button
+                      onClick={() => setTrailheadMode('access')}
+                      className="rounded bg-green-700 px-3 py-2 text-sm text-white hover:bg-green-800"
+                    >
+                      アクセスを調べる
+                    </button>
+                    <button
+                      onClick={() => setTrailheadMode('summits')}
+                      className="rounded border border-green-700 px-3 py-2 text-sm text-green-700 hover:bg-green-50"
+                    >
+                      この登山口から登れる山を調べる
+                    </button>
+                  </div>
+                ) : (
+                  <AiChat
+                    question={
+                      trailheadMode === 'access'
+                        ? `${selection.nameJa}までのアクセス情報を教えて`
+                        : `${selection.nameJa}から登れる主要な山と頂上までの時間を教えて`
+                    }
+                  />
+                )
+              ) : (
+                <AiChat question={`${selection.nameJa}に行ける主要な登山口と時間を教えて`} />
+              )}
             </>
           )}
         </aside>

@@ -3,20 +3,15 @@
 import { useEffect, useState } from 'react';
 
 type Props = {
-    kind: 'trailhead' | 'summit';
-    nameJa: string;
+    question: string;
 }
 
-export default function AiChat({ kind, nameJa }: Props) {
+export default function AiChat({ question }: Props) {
   const [answer, setAnswer] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
 useEffect(() => {
   const controller = new AbortController();
-  const question =
-    kind === 'trailhead'
-      ? `${nameJa}までのアクセス情報を教えて`
-      : `${nameJa}に行ける主要な登山口と、時間を教えて`;
 
   setAnswer(null);
   setLoading(true);
@@ -36,7 +31,7 @@ useEffect(() => {
     .finally(() => setLoading(false));
 
   return () => controller.abort();
-}, [kind, nameJa]);
+}, [question]);
 
   if (loading) return <p className="text-sm text-gray-400">回答を生成中...</p>;
   if (!answer) return null;
